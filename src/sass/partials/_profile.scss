@@ -1,0 +1,24 @@
+.profile_banner {
+  height: 400px;
+  background-size: cover;
+  background-position-y: center;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 1px 5px 9px rgba($color: #000000, $alpha: 0.25);
+}
+
+.avatar {
+  position: relative;
+  margin: 0 auto;
+  top: -125px;
+  border-radius: 50%;
+  height: 250px;
+  width: 300px !important;
+  padding: 0 !important;
+  /*  border: 1px solid black; */
+  box-shadow: 1px 5px 9px rgba($color: #000000, $alpha: 0.5);
+  cursor: pointer;
+}
+
+.editBanner {
+  cursor: pointer;
+}

@@ -1,0 +1,27 @@
+/* .hero__container {
+  height: 232px;
+} */
+.banner {
+  margin-bottom: 5rem;
+
+  &__col {
+    background-image: url(../../images/pexels-grzegorz.jpg);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: cover;
+    background-position-x: center;
+    height: 350px;
+    box-shadow: 1px 4px 9px rgba($color: #000000, $alpha: 0.25);
+    border-radius: 0 0 5px 5px;
+  }
+  &__col--paragraph {
+    color: $light-font;
+    padding-left: 60%;
+    padding-top: 10%;
+    text-shadow: 1px 2px 5px rgba($color: #000000, $alpha: 0.75);
+    font-family: "odibee sans", cursive;
+    text-decoration: underline 5px $secondary;
+    font-size: 3rem;
+    text-transform: capitalize;
+  }
+}

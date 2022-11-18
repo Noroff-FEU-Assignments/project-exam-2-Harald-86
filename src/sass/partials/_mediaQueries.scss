@@ -1,0 +1,19 @@
+@media screen and (max-width: 991px) {
+  .banner {
+    &__col--paragraph {
+      padding-top: 20% !important;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .banner {
+    &__col--paragraph {
+      padding-top: 25% !important;
+    }
+  }
+}
+@media screen and (max-width: 450px) {
+  .post {
+    width: 18rem !important;
+  }
+}

@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Roboto&display=swap");
+//general
+
+h1 {
+  color: $dark-font;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Roboto", sans-serif;
+}
+
+// nav
+
+nav .navbar-brand {
+  font-family: "Odibee Sans", cursive;
+  text-transform: capitalize;
+  padding-left: 1rem;
+  text-decoration: underline 3px $secondary;
+  font-size: 1.5rem;
+}

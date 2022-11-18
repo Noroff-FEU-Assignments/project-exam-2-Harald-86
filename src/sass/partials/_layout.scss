@@ -1,0 +1,20 @@
+html,
+body {
+  color: #f8f8f8;
+
+  height: 100%;
+}
+
+.wrapper {
+  flex: 1 0 auto;
+}
+
+.container {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
