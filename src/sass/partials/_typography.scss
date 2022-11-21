@@ -13,10 +13,24 @@ h3 {
 
 // nav
 
-nav .navbar-brand {
-  font-family: "Odibee Sans", cursive;
-  text-transform: capitalize;
-  padding-left: 1rem;
-  text-decoration: underline 3px $secondary;
-  font-size: 1.5rem;
+nav {
+  .brand {
+    font-family: "Odibee Sans", cursive;
+    text-transform: capitalize;
+    padding-left: 1rem;
+    text-decoration: underline 3px $secondary;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+  }
+
+  a {
+    font-family: "roboto", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: 1s;
+  }
+  a:hover {
+    text-decoration: 2px solid underline $secondary;
+    color: $secondary;
+  }
 }

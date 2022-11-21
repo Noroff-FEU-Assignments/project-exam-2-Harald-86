@@ -7,6 +7,8 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ValidationError from "../../common/FormError";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 const schema = yup.object().shape({
   body: yup.string().required("Please add a comment to comment...."),
@@ -24,7 +26,7 @@ export default function GetPostDetails() {
 
   const POST_DETAIL_URL = BASE_URL + `/social/posts/${id}?_author=true&_comments=true&_reactions=true`;
 
-  useEffect(function () {
+  useEffect(() => {
     async function fetchPostDetails() {
       try {
         const detailResponse = await authenticate.get(POST_DETAIL_URL);
@@ -58,12 +60,15 @@ export default function GetPostDetails() {
     async function postComment(data) {
       try {
         const commentResponse = await authenticate.post(COMMENT_URL, data);
+        const newComments = await authenticate.get(POST_DETAIL_URL);
+        console.log("updated comments?", newComments.data.comments);
         console.log("i made a comment :", commentResponse);
+        setCommentDetail(newComments.data.comments);
       } catch (error) {
         console.log(error);
       }
     }
-    postComment(data);
+    postComment(data, commentDetail);
   }
 
   if (loadPostDetail) {
@@ -76,27 +81,29 @@ export default function GetPostDetails() {
 
   return (
     <div className="detail">
-      <div className="detail__head">
-        <img src={postDetail.author.avatar} alt="Koble user" className="detail__head__avatar" />
-        <h3 className="detail__head__author">{postDetail.author.name}</h3>
-      </div>
-      <div className="detail__body">
-        <h2 className="detail__body__title">{postDetail.title}</h2>
-        <p className="detail__body__copy">{postDetail.body}</p>
-      </div>
+      <Row className="detail__post">
+        <Col sm={12} md={6}>
+          <img src={postDetail.author.avatar} alt="Koble user" className="detail__head__avatar img-fluid" />
+        </Col>
+        <Col className="detail__body">
+          <h2 className="detail__body__title">{postDetail.title}</h2>
+          <p className="detail__body__copy">{postDetail.body}</p>
+        </Col>
+      </Row>
       <div className="detail__comment">
         <div className="detail__comment__head">
           <input name="body" placeholder="Comment" {...register("body")} />
           <button onClick={handleSubmit(handleComment)}>Comment</button>
         </div>
         <div className="detail__comment__body">
-          {postDetail.comments.map((getComments) => {
+          {commentDetail.map((getComments) => {
             console.log(getComments);
+
             return (
-              <>
-                <h3 key={getComments.id}>{getComments.owner}</h3>
+              <div key={getComments.id}>
+                <h3>{getComments.owner}</h3>
                 <p>{getComments.body}</p>
-              </>
+              </div>
             );
           })}
         </div>

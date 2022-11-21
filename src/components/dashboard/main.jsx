@@ -1,6 +1,8 @@
 import Heading from "../common/Heading";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Art from "./DashHero";
+import CreatePost from "../posts/CreatePost";
 
 /* const user = JSON.parse(localStorage.getItem("auth"));
 console.log(user.name); */
@@ -8,9 +10,10 @@ console.log(user.name); */
 export default function Dashboard() {
   return (
     <>
-      <Row>
-        <p>insert uploaded banner here</p>
-      </Row>
+      <Art>
+        <Heading size="1" title="Koble" />
+      </Art>
+      <CreatePost />
       <Row>
         <Heading title="KobleUniverset" />
         <p>Følg profiler, si din mening og koble opp mot andre folk med samme interesser.. bla bla</p>

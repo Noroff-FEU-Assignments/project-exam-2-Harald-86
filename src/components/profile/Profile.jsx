@@ -7,6 +7,7 @@ import Banner from "./Banner";
 import GetFollowedPosts from "./FollowedProfiles";
 
 export default function Profile() {
+  document.title = "Profile";
   return (
     <>
       <Banner />

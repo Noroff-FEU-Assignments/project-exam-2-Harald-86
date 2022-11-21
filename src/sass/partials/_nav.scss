@@ -1,8 +1,14 @@
 nav {
   box-shadow: 1px 4px 9px rgba($color: #000000, $alpha: 0.5);
+  /*   .brand {
+    
+    text-decoration: underline 4px solid $secondary;
+  } */
 }
 
-nav .navbar-nav .nav-link,
-nav .navbar-brand {
-  color: $light-font;
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }

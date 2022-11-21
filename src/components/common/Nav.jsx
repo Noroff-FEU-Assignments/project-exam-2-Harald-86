@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import AuthContext from "../../context/AuthContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   const [auth, setAuth] = useContext(AuthContext);
@@ -20,14 +21,18 @@ function NavBar() {
       {auth ? (
         <>
           <Navbar bg="primary" expand="md">
-            <Navbar.Brand href="/dashboard">koble</Navbar.Brand>
+            <Link className="brand" to="/dashboard">
+              koble
+            </Link>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-nav-bar">
               <Nav className="mx-auto">
-                <Nav.Link href="/profile">{userName.name}</Nav.Link>
-                <Nav.Link href="/dashboard">Home</Nav.Link>
-                <Nav.Link href="/posts">All posts</Nav.Link>
-                <Nav.Link href="/users">Explore Users</Nav.Link>
+                <Link to="/profile" title="test">
+                  {userName.name}
+                </Link>
+                <Link to="/dashboard">Home</Link>
+                <Link to="/posts">All posts</Link>
+                <Link to="/users">Explore Users</Link>
               </Nav>
               <Nav className="ml-auto">
                 <Nav.Link href="/">
@@ -40,11 +45,13 @@ function NavBar() {
       ) : (
         <>
           <Navbar bg="primary" expand="md">
-            <Navbar.Brand href="/">koble</Navbar.Brand>
+            <Link className="brand" to="/">
+              koble
+            </Link>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-nav-bar">
               <Nav className="mx-auto">
-                <Nav.Link href="/register">Create account?</Nav.Link>
+                <Link to="/register">Create account?</Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>

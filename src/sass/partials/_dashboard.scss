@@ -1,0 +1,12 @@
+.hero {
+  background-image: url("../../images/heroart.jpg");
+  height: 400px;
+  background-size: cover;
+  background-position-y: center;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 1px 5px 9px rgba($color: #000000, $alpha: 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
