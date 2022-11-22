@@ -25,18 +25,18 @@ The API you are using for this project can be found under Social EndPoints in th
 
 The client has specified the following requirements in the form of _User Stories_:
 
-1. A user with a `stud.noroff.no` email may register
-2. A registered user may login
-3. A registered user may update their avatar and banner
-4. A registered user may logout
+1. A user with a `stud.noroff.no` email may register "`(check)`"
+2. A registered user may login `"(check)"`
+3. A registered user may update their avatar and banner "`(check)`"
+4. A registered user may logout "`(check)`"
 5. A registered user may view a list of `Posts`
 6. A registered user may view a list of `Profiles`
-7. A registered user may view a single `Post` by `id`
+7. A registered user may view a single `Post` by `id` "`(check)`"
 8. A registered user may view a single `Profile` by `name`
-9. A registered user may create a `Post`
+9. A registered user may create a `Post` "`(check)`"
 10. A registered user may update a `Post` they own
 11. A registered user may delete a `Post` they own
-12. A registered user may create a `Comment` on any `Post`
+12. A registered user may create a `Comment` on any `Post` "`(check)`"
 13. A registered user may `react` to any `Post` with an emoji
 14. A registered user may `follow` and `unfollow` another `Profile`
 
