@@ -1,1 +1,10 @@
+.entry {
+  padding: 1rem;
+  background-color: $primary;
+  border-radius: 5px;
 
+  &__textarea {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
