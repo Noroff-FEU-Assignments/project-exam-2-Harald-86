@@ -3,7 +3,7 @@ import Spinner from "react-bootstrap/Spinner";
 
 export default function Loader(props) {
   return (
-    <Spinner animation="border" role="status" className="spinner-border text-secondary">
+    <Spinner animation="border" role="status" className="spinner-border secondary text-secondary">
       {props.text}
     </Spinner>
   );

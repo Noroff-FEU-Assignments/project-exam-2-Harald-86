@@ -1,11 +1,6 @@
 nav {
-  box-shadow: 1px 4px 9px rgba($color: #000000, $alpha: 0.5);
-  /*   .brand {
-    
-    text-decoration: underline 4px solid $secondary;
-  } */
+  box-shadow: 1px 5px 9px rgba($color: $primary, $alpha: 0.25);
 }
-
 nav a {
   color: #fff;
   text-decoration: none;

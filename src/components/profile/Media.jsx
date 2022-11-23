@@ -47,11 +47,12 @@ export default function Avatar() {
     }
   })();
 
-  async function avatarSubmit(data) {
+  async function avatarSubmit(data, e) {
     console.log("url submittet :", data);
     try {
       const response = await authorized.put(avatarUrl, data);
       setAvatar(response.data.avatar);
+      e.target.reset();
     } catch (error) {
       console.log("error", error.toString());
       setMediaError("Image must be from a valid url");

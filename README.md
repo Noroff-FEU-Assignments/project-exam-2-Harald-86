@@ -33,7 +33,7 @@ The client has specified the following requirements in the form of _User Stories
 6. A registered user may view a list of `Profiles`
 7. A registered user may view a single `Post` by `id` "`(check)`"
 8. A registered user may view a single `Profile` by `name`
-9. A registered user may create a `Post` "`(check)`"
+9. A registered user may create a `Post` "`(check)`" // need to add a error message and success message
 10. A registered user may update a `Post` they own
 11. A registered user may delete a `Post` they own
 12. A registered user may create a `Comment` on any `Post` "`(check)`"

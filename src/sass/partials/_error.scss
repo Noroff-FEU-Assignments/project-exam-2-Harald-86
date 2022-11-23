@@ -1,0 +1,11 @@
+.form {
+  color: white;
+  text-transform: uppercase;
+
+  &__error {
+    padding: 1rem;
+    border: 1px solid red;
+    background-color: rgb(255, 108, 108);
+    border-radius: 5px;
+  }
+}
