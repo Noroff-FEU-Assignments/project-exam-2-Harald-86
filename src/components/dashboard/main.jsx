@@ -27,8 +27,6 @@ export default function Dashboard() {
       <Row className="dashboard">
         <Col xs={6} sm={4} md={2} className="dashboard__col--img">
           <ProfilePic alt="your profile avatar" />
-          {/*  <Image src={avatar} className="img-fluid dashboard__img" /> */}
-          <Heading size="3" title={name} />
         </Col>
         <Col sm={8} md={10} className="dashboard__col">
           {" "}

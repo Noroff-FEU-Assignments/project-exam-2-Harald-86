@@ -3,7 +3,8 @@ import Spinner from "react-bootstrap/Spinner";
 import useAxios from "../../hooks/useAxios";
 import { BASE_URL } from "../../constants/api";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import FollowProfile from "./Follow";
+import { Link } from "react-router-dom";
 
 const allUsersUrl = BASE_URL + "/social/profiles?sortOrder=asc";
 console.log("all users :", allUsersUrl);
@@ -43,13 +44,15 @@ export default function GetAllUsers() {
     <div className="container">
       {allUsers.map(function (user) {
         return (
-          <Card style={{ width: "18rem" }} className="user" key={user.name}>
-            <Card.Img variant="top" src={user.avatar} className="user__avatar img-fluid" alt="" />
+          <Link to={`/users/${user.name}`}>
+            <Card style={{ width: "18rem" }} className="user" key={user.name}>
+              <Card.Img variant="top" src={user.avatar} className="user__avatar img-fluid" alt="" />
 
-            <Card.Body>
-              <Card.Title>{user.name}</Card.Title>
-            </Card.Body>
-          </Card>
+              <Card.Body>
+                <Card.Title>{user.name}</Card.Title>
+              </Card.Body>
+            </Card>
+          </Link>
         );
       })}
     </div>

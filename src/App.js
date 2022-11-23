@@ -15,6 +15,7 @@ import Profile from "./components/profile/Profile";
 import GetPostDetails from "./components/posts/details/PostDetails";
 import { AuthProvider } from "./context/AuthContext";
 import "./App.scss";
+import UserDetails from "./components/users/details/UserDetails";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />}></Route>
               <Route path="/users" element={<Users />}></Route>
               <Route path="/profile" element={<Profile />}></Route>
+              <Route path="/users/:name" element={<UserDetails />}></Route>
             </Routes>
           </Container>
         </div>
