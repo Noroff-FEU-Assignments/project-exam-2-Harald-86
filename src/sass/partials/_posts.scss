@@ -2,6 +2,11 @@
   height: 80vh;
   overflow-y: auto;
   width: 100%;
+
+  &__card {
+    border: 1px solid $primary;
+    padding: 0.5rem;
+  }
 }
 
 /* .all__posts {

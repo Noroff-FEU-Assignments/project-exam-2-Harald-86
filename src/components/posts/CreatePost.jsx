@@ -13,7 +13,7 @@ import ValidationError from "../common/FormError";
 
 const schema = yup.object().shape({
   title: yup.string().required("please enter title for your shout"),
-  body: yup.string().max(200),
+  body: yup.string().max(280),
   media: yup.string(),
 });
 
@@ -40,11 +40,11 @@ export default function CreatePost(props) {
 
       e.target.reset();
     } catch (error) {
-      console.log(error);
+      console.log("error", error);
       setEntryError(console.log(error)); // fix error and success message!
     }
   }
-  /** how to i get this onSubmit to talk with the parent??????? */
+
   return (
     <Form onSubmit={handleSubmit(createEntry)} className="entry">
       {entryError && <ValidationError>{entryError}</ValidationError>}

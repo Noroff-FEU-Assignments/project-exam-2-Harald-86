@@ -5,6 +5,9 @@ import getLocalstorageInfo from "../../context/useLocalstorage";
 import CreatePost from "./CreatePost";
 import Heading from "../common/Heading";
 import { Link } from "react-router-dom";
+import UpdateModal from "./changePost";
+import Button from "react-bootstrap/Button";
+import KobleModal from "../common/Modal";
 
 export default function TestPosts() {
   const getUser = getLocalstorageInfo("auth").name;
@@ -12,6 +15,7 @@ export default function TestPosts() {
   const mypostsURL = BASE_URL + `/social/profiles/${getUser}/posts`;
 
   const [testPost, setTestPost] = useState([]);
+  const [modalInfo, setModalInfo] = useState({});
 
   async function fetchTestPosts() {
     try {
@@ -26,21 +30,39 @@ export default function TestPosts() {
     fetchTestPosts();
   }, []);
 
+  const [modalShow, setModalShow] = useState(false);
+
   return (
     <div className="post">
-      {/* how do i pass props down and up from this? 
-    TestPosts is the parent, <CreatePost is the child..
-     i need to set the state in parent in onSubmit in CreatePost..  */}
       <CreatePost posts={fetchTestPosts} />
-
       {testPost.map((myposts) => {
         return (
           <div className="post__card" key={myposts.id}>
             <div className="post__title">{myposts.title}</div>
             <div className="post__body"> {myposts.body}</div>
+            <div className="post__footer">
+              <Button
+                variant="primary"
+                onClick={() => {
+                  setModalInfo(myposts);
+                  setModalShow(true);
+                }}
+              >
+                Edit post
+              </Button>
+            </div>
           </div>
         );
       })}
+      <KobleModal show={modalShow} onHide={() => setModalShow(false)} title="Update post">
+        <UpdateModal
+          refresh={fetchTestPosts}
+          id={modalInfo.id}
+          body={modalInfo.body}
+          title={modalInfo.title}
+          media={modalInfo.media}
+        />
+      </KobleModal>
     </div>
   );
 }
