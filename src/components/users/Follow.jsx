@@ -45,5 +45,3 @@ export function UnfollowProfile() {
     </Button>
   );
 }
-
-// add a check if user followes then change button text.. do a inline conditional rendering. with a unfollow profile button?

@@ -11,9 +11,27 @@
       padding-top: 25% !important;
     }
   }
+  .profile_banner {
+    height: 300px !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .hero,
+  .profile_banner {
+    height: 250px !important;
+  }
+
+  .avatar--main {
+    display: none;
+  }
 }
 @media screen and (max-width: 450px) {
   .post {
     width: 18rem !important;
+  }
+  .profile_banner,
+  .hero {
+    height: 225px !important;
   }
 }

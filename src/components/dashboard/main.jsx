@@ -3,20 +3,21 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Art from "./DashHero";
 import CreatePost from "../posts/CreatePost";
-import Image from "react-bootstrap/Image";
+/* import Image from "react-bootstrap/Image"; */
 import getAvatar from "../profile/Media";
 import ProfilePic from "../common/ProfilePic";
+import { Link } from "react-router-dom";
 
-import getLocalstorageInfo from "../../context/useLocalstorage";
-import { useState } from "react";
+/* import getLocalstorageInfo from "../../context/useLocalstorage"; */
+/* import { useState } from "react"; */
 
 /* const user = JSON.parse(localStorage.getItem("auth"));
 console.log(user.name); */
 
 export default function Dashboard() {
-  const avatar = getLocalstorageInfo("auth").avatar;
+  /*   const avatar = getLocalstorageInfo("auth").avatar;
   const name = getLocalstorageInfo("auth").name;
-  console.log(getAvatar);
+  console.log(getAvatar); */
 
   return (
     <>
@@ -26,7 +27,9 @@ export default function Dashboard() {
       <Heading size="1" title="Koble" />
       <Row className="dashboard">
         <Col xs={6} sm={4} md={2} className="dashboard__col--img">
-          <ProfilePic alt="your profile avatar" />
+          <Link to="/profile">
+            <ProfilePic alt="your profile avatar" />
+          </Link>
         </Col>
         <Col sm={8} md={10} className="dashboard__col">
           {" "}

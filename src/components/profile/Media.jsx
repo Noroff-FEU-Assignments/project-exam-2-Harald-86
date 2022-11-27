@@ -65,7 +65,7 @@ export default function Avatar() {
     <>
       <Image
         src={avatar ? avatar : avatarplaceholder}
-        className="avatar"
+        className="avatar img-fluid"
         alt="This is your avatar"
         onClick={handleShow}
       />

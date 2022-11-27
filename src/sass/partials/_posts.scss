@@ -1,9 +1,17 @@
-.all__posts {
+.post {
+  height: 80vh;
+  overflow-y: auto;
+  width: 100%;
+}
+
+/* .all__posts {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+
+
 
 .post {
   width: 24rem;
@@ -45,7 +53,7 @@
 .post:hover {
   transform: 3s;
   box-shadow: none;
-}
+} */
 
 /* .all_posts__post__comments__comment {
   background-color: azure;

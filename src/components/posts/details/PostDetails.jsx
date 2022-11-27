@@ -88,6 +88,7 @@ export default function GetPostDetails() {
         <Col className="detail__body">
           <h2 className="detail__body__title">{postDetail.title}</h2>
           <p className="detail__body__copy">{postDetail.body}</p>
+          <img className="img-fluid" src={postDetail.media} alt="related to the post text " />
         </Col>
       </Row>
       <div className="detail__comment">

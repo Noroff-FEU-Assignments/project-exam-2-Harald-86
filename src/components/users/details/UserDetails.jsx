@@ -5,8 +5,10 @@ import { useEffect, useState } from "react";
 import { FollowProfile, UnfollowProfile } from "../Follow";
 import Heading from "../../common/Heading";
 import getLocalstorageInfo from "../../../context/useLocalstorage";
-import ValidationError from "../../common/FormError";
-import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import heroart from "../../../images/heroart.jpg";
+import Art from "../../dashboard/DashHero";
 
 export default function UserDetails() {
   let { name } = useParams();
@@ -57,6 +59,30 @@ export default function UserDetails() {
 
   console.log("correct button?", iFollow);
 
-  return <div>{iFollow ? <UnfollowProfile /> : <FollowProfile />}</div>;
-  /*   return <div>{iFollow ? <UnfollowProfile /> : <FollowProfile />}</div>; */
+  return (
+    <>
+      <Row className="profile__body">
+        <Col md={12}>
+          {userDetail.banner ? (
+            <img src={userDetail.banner} className="profile__banner img-fluid" alt="Users banner" />
+          ) : (
+            <Art>
+              <Heading title="koble" size="2" />
+            </Art>
+          )}
+        </Col>
+        <Col sm={6}>
+          {" "}
+          <Heading size="1" title={userDetail.name} />
+        </Col>
+
+        <Col sm={6}>
+          <img src={userDetail.avatar} alt="Users avatar" className="profile__avatar" />
+          <div>{iFollow ? <UnfollowProfile /> : <FollowProfile />}</div>
+        </Col>
+      </Row>
+
+      <Row className="profile__footer"></Row>
+    </>
+  );
 }

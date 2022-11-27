@@ -1,11 +1,8 @@
 import useAxios from "../../hooks/useAxios";
-import Heading from "../common/Heading";
 import * as yup from "yup";
-/* import Loader from "../common/Loader"; */
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { BASE_URL } from "../../constants/api";
-/* import { AlertBad, AlertGood } from "../common/Alert"; */
 import { useForm } from "react-hook-form";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -15,12 +12,13 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import ValidationError from "../common/FormError";
 
 const schema = yup.object().shape({
-  title: yup.string().required("please enter tile for your shout"),
+  title: yup.string().required("please enter title for your shout"),
   body: yup.string().max(200),
   media: yup.string(),
 });
 
-export default function CreatePost() {
+export default function CreatePost(props) {
+  console.log(props);
   const createEntry_URL = BASE_URL + "/social/posts";
   const [entryError, setEntryError] = useState(null);
 
@@ -38,15 +36,14 @@ export default function CreatePost() {
     console.log("data", data);
     try {
       const entryResponse = await authenticate.post(createEntry_URL, data);
-      console.log("Did i make a post?", entryResponse);
-
+      console.log("Response: ", entryResponse);
       e.target.reset();
     } catch (error) {
       console.log(error);
-      setEntryError(); // fix error and success message!
+      setEntryError(console.log(error)); // fix error and success message!
     }
   }
-
+  /** how to i get this onSubmit to talk with the parent??????? */
   return (
     <Form onSubmit={handleSubmit(createEntry)} className="entry">
       {entryError && <ValidationError>{entryError}</ValidationError>}
@@ -75,7 +72,6 @@ export default function CreatePost() {
           className="entry__textarea"
           as="textarea"
           style={{ height: "100px" }}
-          a
           name="body"
           placeholder="My message to the KobleUnivers"
           {...register("body")}
