@@ -12,16 +12,17 @@ export default function TestPosts() {
   const mypostsURL = BASE_URL + `/social/profiles/${getUser}/posts`;
 
   const [testPost, setTestPost] = useState([]);
-  useEffect(() => {
-    async function fetchTestPosts() {
-      try {
-        const response = await auth.get(mypostsURL);
-        console.log(response);
-        setTestPost(response.data);
-      } catch (error) {
-        console.log(error);
-      }
+
+  async function fetchTestPosts() {
+    try {
+      const response = await auth.get(mypostsURL);
+      console.log(response);
+      setTestPost(response.data);
+    } catch (error) {
+      console.log(error);
     }
+  }
+  useEffect(() => {
     fetchTestPosts();
   }, []);
 
@@ -30,7 +31,7 @@ export default function TestPosts() {
       {/* how do i pass props down and up from this? 
     TestPosts is the parent, <CreatePost is the child..
      i need to set the state in parent in onSubmit in CreatePost..  */}
-      <CreatePost onSubmit={(testPost) => setTestPost(testPost)} />
+      <CreatePost posts={fetchTestPosts} />
 
       {testPost.map((myposts) => {
         return (

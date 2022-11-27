@@ -18,7 +18,7 @@ const schema = yup.object().shape({
 });
 
 export default function CreatePost(props) {
-  console.log(props);
+  console.log("passed function", props);
   const createEntry_URL = BASE_URL + "/social/posts";
   const [entryError, setEntryError] = useState(null);
 
@@ -37,6 +37,7 @@ export default function CreatePost(props) {
     try {
       const entryResponse = await authenticate.post(createEntry_URL, data);
       console.log("Response: ", entryResponse);
+
       e.target.reset();
     } catch (error) {
       console.log(error);
@@ -78,7 +79,7 @@ export default function CreatePost(props) {
         />
         {errors.body && <ValidationError>{errors.body.message}</ValidationError>}
       </FloatingLabel>
-      <Button type="submit" className="btn-secondary btn">
+      <Button onClick={props.posts} type="submit" className="btn-secondary btn">
         Shout
       </Button>
     </Form>
