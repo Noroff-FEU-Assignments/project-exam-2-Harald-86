@@ -6,6 +6,7 @@ import Banner from "./Banner";
 import MyPosts from "../posts/MyPosts";
 import Heading from "../common/Heading";
 import getLocalstorageInfo from "../../context/useLocalstorage";
+import GetFollowedNumbers from "./FollowedNumbers";
 
 export default function Profile() {
   const user = getLocalstorageInfo("auth").name;
@@ -14,19 +15,17 @@ export default function Profile() {
     <>
       <Banner />
       <Row>
-        <Col xs={6} sm={4} md={3}>
+        <Col xs={6} sm={4} md={4}>
           <Avatar />
-        </Col>
-        <Col xs={6} sm={8} md={9}>
           <Heading title={<Username />} size="1" />
+          <GetFollowedNumbers />
+        </Col>
+        <Col xs={12} sm={8}>
+          <MyPosts />
         </Col>
       </Row>
       <Row>
-        <Col xs={12} sm={12}>
-          {/* <Heading size="2" title="My shouts" /> */}
-          {/* <MyPosts /> */}
-          <MyPosts />
-        </Col>
+        <Col xs={6} sm={8} md={9}></Col>
       </Row>
     </>
   );

@@ -32,13 +32,13 @@ The client has specified the following requirements in the form of _User Stories
 5. A registered user may view a list of `Posts`
 6. A registered user may view a list of `Profiles`
 7. A registered user may view a single `Post` by `id` "`(check)`"
-8. A registered user may view a single `Profile` by `name`
+8. A registered user may view a single `Profile` by `name` (check)
 9. A registered user may create a `Post` "`(check)`" // need to add a error message and success message
-10. A registered user may update a `Post` they own
-11. A registered user may delete a `Post` they own
+10. A registered user may update a `Post` they own (Check)
+11. A registered user may delete a `Post` they own /Check)
 12. A registered user may create a `Comment` on any `Post` "`(check)`"
 13. A registered user may `react` to any `Post` with an emoji
-14. A registered user may `follow` and `unfollow` another `Profile`
+14. A registered user may `follow` and `unfollow` another `Profile` (Check)
 
 ### Technical Restrictions
 

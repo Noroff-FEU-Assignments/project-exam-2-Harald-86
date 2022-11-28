@@ -1,7 +1,7 @@
 .post {
-  height: 80vh;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   width: 100%;
+  margin-top: 1rem;
 
   &__card {
     border: 1px solid $primary;
