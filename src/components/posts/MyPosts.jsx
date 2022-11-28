@@ -1,67 +1,73 @@
+import { useEffect, useState } from "react";
+import useAxios from "../../hooks/useAxios";
 import { BASE_URL } from "../../constants/api";
 import getLocalstorageInfo from "../../context/useLocalstorage";
-import { useState, useEffect } from "react";
-import useAxios from "../../hooks/useAxios";
-import Loader from "../common/Loader";
-import { Link } from "react-router-dom";
+import CreatePost from "./CreatePost";
 import Heading from "../common/Heading";
+import { Link } from "react-router-dom";
+import UpdateModal from "./changePost";
+import Button from "react-bootstrap/Button";
+import KobleModal from "../common/Modal";
+import DeleteButton from "./DeletePost";
 
 export default function MyPosts() {
-  const [myPosts, setMyPosts] = useState([]);
-  const [myPostsError, setMyPostsError] = useState(null);
-  const [myPostsLoading, setMyPostsLoading] = useState(true);
-
-  const me = getLocalstorageInfo("auth").name;
+  const getUser = getLocalstorageInfo("auth").name;
   const auth = useAxios();
-  const myposts_URL = BASE_URL + `/social/profiles/${me}/posts`;
-  const placeholder =
-    "https://images.pexels.com/photos/1591060/pexels-photo-1591060.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+  const mypostsURL = BASE_URL + `/social/profiles/${getUser}/posts`;
 
-  useEffect(() => {
-    async function fetchMyPosts() {
-      try {
-        const response = await auth.get(myposts_URL);
-        console.log(response.data);
-        setMyPosts(response.data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setMyPostsLoading(false);
-      }
+  const [testPost, setTestPost] = useState([]);
+  const [modalInfo, setModalInfo] = useState({});
+
+  async function fetchMyPosts() {
+    try {
+      const response = await auth.get(mypostsURL);
+      console.log(response);
+      setTestPost(response.data);
+    } catch (error) {
+      console.log(error);
     }
+  }
+  useEffect(() => {
     fetchMyPosts();
   }, []);
 
-  if (myPostsError) {
-    return <div className="message__error">ops... something went wrong</div>;
-  }
-
-  if (myPostsLoading) {
-    return <Loader />;
-  }
+  const [modalShow, setModalShow] = useState(false);
 
   return (
     <div className="post">
-      {myPosts.map((poster) => {
-        console.log(poster);
+      <CreatePost posts={fetchMyPosts} />
+      {testPost.map((myposts) => {
         return (
-          <Link to={`/posts/${poster.id}`} key={poster.id}>
-            <div className="post__card">
-              {poster.media ? (
-                <img src={poster.media} className="post__image img-fluid" alt="create alt text" />
-              ) : (
-                <img
-                  src={placeholder}
-                  className="post__image img-fluid"
-                  alt="placeholder when the post has no media attached"
-                />
-              )}
-              <Heading size="4" title={poster.title} />
-              <div className="post__body">{poster.body}</div>
+          <div className="post__card" key={myposts.id}>
+            <div className="post__title">{myposts.title}</div>
+            <div className="post__body"> {myposts.body}</div>
+            <div className="post__footer">
+              <Link to={`/posts/${myposts.id}`}>
+                <Button>View</Button>
+              </Link>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  setModalInfo(myposts);
+                  setModalShow(true);
+                }}
+              >
+                Edit post
+              </Button>
+              <DeleteButton id={myposts.id} renew={fetchMyPosts} />
             </div>
-          </Link>
+          </div>
         );
       })}
+      <KobleModal show={modalShow} onHide={() => setModalShow(false)} title="Update post">
+        <UpdateModal
+          refresh={fetchMyPosts}
+          id={modalInfo.id}
+          body={modalInfo.body}
+          title={modalInfo.title}
+          media={modalInfo.media}
+        />
+      </KobleModal>
     </div>
   );
 }

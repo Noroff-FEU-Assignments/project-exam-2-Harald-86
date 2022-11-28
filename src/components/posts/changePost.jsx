@@ -33,7 +33,7 @@ export default function UpdateModal({ refresh, id, body, title, media }) {
     try {
       const response = await auth.put(update_URL, data);
       console.log("update response", response);
-
+      refresh();
       if (response.status === 200) {
         setSuccess("Post updated");
       }
@@ -56,7 +56,7 @@ export default function UpdateModal({ refresh, id, body, title, media }) {
         <Form.Label>Shout</Form.Label>
         <Form.Control as="textarea" placeholder="body" name="title" defaultValue={body} {...register("body")} />
       </Form.Group>
-      <Button onClick={refresh} className="btn btn-secondary cta" type="submit">
+      <Button className="btn btn-secondary cta" type="submit">
         Update Post
       </Button>
       {successful && <span className="update__success">{success}</span>}
