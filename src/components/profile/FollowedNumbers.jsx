@@ -12,7 +12,7 @@ export default function GetFollowNumbers() {
 
   const [following, setFollowing] = useState(null);
   const [followers, setFollowers] = useState(null);
-  const [profileList, setProfileList] = useState([]);
+  /*  const [profileList, setProfileList] = useState([]); */
 
   async function checkForFollowDetails() {
     try {
@@ -25,7 +25,7 @@ export default function GetFollowNumbers() {
     }
   }
 
-  async function getProfiles() {
+  /*   async function getProfiles() {
     try {
       const response = await auth.get(followerInfo_URL);
       console.log("display followers", response.data.following);
@@ -33,15 +33,23 @@ export default function GetFollowNumbers() {
     } catch (error) {
       console.log(error);
     }
-  }
+  } */
 
   useEffect(() => {
     checkForFollowDetails();
-    getProfiles();
+    /* getProfiles(); */
   }, []);
 
   return (
-    <Accordion defaultActiveKey="1">
+    <div className="count">
+      <p>
+        Following : <span className="count__details">{following}</span>
+      </p>
+      <p className="count__fix">
+        Followers :<span className="count__details"> {followers}</span>
+      </p>
+    </div>
+    /*     <Accordion defaultActiveKey="1">
       <Accordion.Item eventKey="0">
         <Accordion.Header>Following</Accordion.Header>
         <Accordion.Body>
@@ -62,6 +70,6 @@ export default function GetFollowNumbers() {
           <p>Followers : {followers}</p>
         </Accordion.Body>
       </Accordion.Item>
-    </Accordion>
+    </Accordion> */
   );
 }
