@@ -32,10 +32,21 @@ export default function MyPosts() {
   }, []);
 
   const [modalShow, setModalShow] = useState(false);
+  const [modalShowTwo, setModalShowTwo] = useState(false);
 
   return (
     <div className="post">
-      <CreatePost posts={fetchMyPosts} />
+      <Button
+        onClick={() => {
+          setModalShowTwo(true);
+        }}
+      >
+        {" "}
+        Say something
+      </Button>
+      <KobleModal show={modalShowTwo} onHide={() => setModalShowTwo(false)} title="Shout! | Koble">
+        <CreatePost posts={fetchMyPosts} />
+      </KobleModal>
       {testPost.map((myposts) => {
         return (
           <div className="post__card" key={myposts.id}>

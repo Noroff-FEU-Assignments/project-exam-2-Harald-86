@@ -32,12 +32,15 @@ export default function CreatePost(props) {
     resolver: yupResolver(schema),
   });
 
+  const funksjon = props.posts;
+  console.log("aaas", funksjon);
+
   async function createEntry(data, e) {
     console.log("data", data);
     try {
       const entryResponse = await authenticate.post(createEntry_URL, data);
       console.log("Response: ", entryResponse);
-
+      props.posts();
       e.target.reset();
     } catch (error) {
       console.log("error", error);
@@ -79,7 +82,7 @@ export default function CreatePost(props) {
         />
         {errors.body && <ValidationError>{errors.body.message}</ValidationError>}
       </FloatingLabel>
-      <Button onClick={props.posts} type="submit" className="btn-secondary btn">
+      <Button onClick={props.posts} onSubmit={props.posts} type="submit" className="btn-secondary btn">
         Shout
       </Button>
     </Form>
