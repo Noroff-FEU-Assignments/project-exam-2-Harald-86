@@ -1,7 +1,7 @@
 import RegForm from "./RegisterFrom";
 import Heading from "../common/Heading";
 import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/row";
+import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
 
 export default function Register() {
