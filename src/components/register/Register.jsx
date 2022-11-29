@@ -14,6 +14,10 @@ export default function Register() {
       </Row>
       <Row>
         <Col sm={12} md={6}>
+          <Heading title="register" />
+          <RegForm />
+        </Col>
+        <Col sm={12} md={6}>
           <p>
             Already a Koble user? go <Link to="/">here</Link> to login.
           </p>
@@ -26,10 +30,6 @@ export default function Register() {
             Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
             Aldus PageMaker including versions of Lorem Ipsum.
           </p>
-        </Col>
-        <Col sm={12} md={6}>
-          <Heading title="register" />
-          <RegForm />
         </Col>
       </Row>
     </>
