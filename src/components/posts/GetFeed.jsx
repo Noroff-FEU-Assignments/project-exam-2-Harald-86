@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import getLocalstorageInfo from "../../context/useLocalstorage";
+import KobleModal from "../common/Modal";
+import CreatePost from "./CreatePost";
 
 export default function GetFeed() {
   const auth = useAxios();
@@ -12,6 +14,7 @@ export default function GetFeed() {
   const [followingPosts, setFollowingPosts] = useState([]);
   const [myPosts, setMyPosts] = useState([]);
   const [combinedResults, setCombinedResults] = useState([]);
+  const [modalShow, setModalShow] = useState(false);
 
   console.log("combined array", combinedResults);
 
@@ -42,10 +45,23 @@ export default function GetFeed() {
   useEffect(() => {
     setCombinedResults([...followingPosts, ...myPosts]);
   }, [myPosts, followingPosts]);
-
   console.log(combinedResults.author);
   return (
     <div className="post">
+      <div className="post__panel">
+        <Button
+          className="cta btn-secondary btn"
+          onClick={() => {
+            setModalShow(true);
+          }}
+        >
+          {" "}
+          NEW SHOUT!
+        </Button>
+      </div>
+      <KobleModal show={modalShow} onHide={() => setModalShow(false)} title="Shout! | Koble">
+        <CreatePost posts={fetchMyPosts} />
+      </KobleModal>
       {[...combinedResults]
         .sort((a, b) => b.id - a.id)
         .map((following) => {

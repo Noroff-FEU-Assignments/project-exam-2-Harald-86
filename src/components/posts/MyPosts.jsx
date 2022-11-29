@@ -38,12 +38,13 @@ export default function MyPosts() {
     <div className="post">
       <div className="post__panel">
         <Button
+          className="cta"
           onClick={() => {
             setModalShowTwo(true);
           }}
         >
           {" "}
-          Say something
+          SHOUT!
         </Button>
         <GetFollowNumbers />
       </div>

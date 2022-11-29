@@ -6,6 +6,7 @@ import CreatePost from "../posts/CreatePost";
 import ProfilePic from "../common/ProfilePic";
 import { Link } from "react-router-dom";
 import GetFeed from "../posts/GetFeed";
+import Username from "../profile/Name";
 
 /* import getLocalstorageInfo from "../../context/useLocalstorage"; */
 /* import { useState } from "react"; */
@@ -30,9 +31,7 @@ export default function Dashboard() {
             <ProfilePic alt="your profile avatar" />
           </Link>
         </Col>
-        <Col sm={8} md={10} className="dashboard__col">
-          <CreatePost />
-        </Col>
+        <Col xs={6} sm={8} md={10} className="dashboard__col--background"></Col>
       </Row>
 
       <Row>
