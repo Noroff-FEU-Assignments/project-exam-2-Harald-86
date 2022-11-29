@@ -5,7 +5,7 @@ import Art from "./DashHero";
 import CreatePost from "../posts/CreatePost";
 import ProfilePic from "../common/ProfilePic";
 import { Link } from "react-router-dom";
-import PostFromFollowingProfiles from "../posts/GetFollowingPosts";
+import GetFeed from "../posts/GetFeed";
 
 /* import getLocalstorageInfo from "../../context/useLocalstorage"; */
 /* import { useState } from "react"; */
@@ -36,7 +36,7 @@ export default function Dashboard() {
       </Row>
 
       <Row>
-        <PostFromFollowingProfiles />
+        <GetFeed />
       </Row>
     </>
   );

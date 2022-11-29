@@ -15,17 +15,14 @@ export default function Profile() {
     <>
       <Banner />
       <Row>
-        <Col xs={6} sm={4} md={4}>
+        <Col xs={12} sm={4} md={4}>
           <Avatar />
-          <Heading title={<Username />} size="1" />
+          <Username />
           <GetFollowedNumbers />
         </Col>
         <Col xs={12} sm={8}>
           <MyPosts />
         </Col>
-      </Row>
-      <Row>
-        <Col xs={6} sm={8} md={9}></Col>
       </Row>
     </>
   );

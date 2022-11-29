@@ -40,19 +40,19 @@ export default function MyPosts() {
         return (
           <div className="post__card" key={myposts.id}>
             <Link to={`/posts/${myposts.id}`}>
-              {" "}
-              {myposts.media ? (
-                <img src={myposts.media} className="img-fluid post__img" alt="post art" />
-              ) : (
-                <img
-                  src="http://placeimg.com/640/360/any"
-                  className="img-fluid post__img"
-                  alt="this is a random generated placeholder"
-                />
-              )}
+              <div
+                className="post__image"
+                style={{
+                  backgroundImage: myposts.media ? `url(${myposts.media})` : `url(http://placeimg.com/640/360/any)`,
+                }}
+              >
+                {" "}
+              </div>
             </Link>
-            <div className="post__title">{myposts.title}</div>
-            <div className="post__body"> {myposts.body}</div>
+            <div className="post__body">
+              <div className="post__title">{myposts.title}</div>
+              <div className="post__text"> {myposts.body}</div>
+            </div>
             <div className="post__footer">
               <Link to={`/posts/${myposts.id}`}>
                 <Button>View</Button>
