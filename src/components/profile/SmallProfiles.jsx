@@ -29,7 +29,7 @@ export function GetFollowingProfiles() {
   }, []);
 
   return (
-    <div>
+    <div className="small">
       {following.map((ing) => {
         return (
           <Link to={`/users/${ing.name}`}>
@@ -67,8 +67,17 @@ export function GetFollowerProfiles() {
   }, []);
 
   return (
-    <>
-      <p>followers</p>
-    </>
+    <div className="small">
+      {followers.map((ers) => {
+        return (
+          <Link to={`/users/${ers.name}`}>
+            <div className="small__profile">
+              <img src={ers.avatar} className="small__profile--avatar" alt="" />
+              <Heading size="4" title={ers.name} />
+            </div>
+          </Link>
+        );
+      })}
+    </div>
   );
 }
