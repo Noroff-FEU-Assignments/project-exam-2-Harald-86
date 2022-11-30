@@ -15,11 +15,13 @@ export default function Profile() {
     <>
       <Banner />
       <Row>
-        <Col xs={12} sm={4} md={4}>
+        <Col xs={12} sm={4} md={4} className="avatar__user">
           <Avatar />
+
           <Username />
         </Col>
         <Col xs={12} sm={8}>
+          <hr />
           <MyPosts />
           {/* <GetFollowedNumbers /> */}
         </Col>
