@@ -89,7 +89,7 @@ export default function GetFeed() {
               </div>
               <div className="post__footer">
                 <Link to={`/posts/${following.id}`}>
-                  <Button>View</Button>
+                  <Button className="btn-secondary cta">View</Button>
                 </Link>
               </div>
             </div>

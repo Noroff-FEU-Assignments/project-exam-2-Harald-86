@@ -3,7 +3,8 @@ import getLocalstorageInfo from "../../context/useLocalstorage";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "../../constants/api";
 import { Link } from "react-router-dom";
-import Accordion from "react-bootstrap/Accordion";
+import KobleModal from "../common/Modal";
+import { GetFollowerProfiles, GetFollowingProfiles } from "./SmallProfiles";
 
 export default function GetFollowNumbers() {
   const me = getLocalstorageInfo("auth").name;
@@ -12,6 +13,8 @@ export default function GetFollowNumbers() {
 
   const [following, setFollowing] = useState(null);
   const [followers, setFollowers] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [showModalSecond, setShowModalSecond] = useState(false);
   /*  const [profileList, setProfileList] = useState([]); */
 
   async function checkForFollowDetails() {
@@ -41,35 +44,23 @@ export default function GetFollowNumbers() {
   }, []);
 
   return (
-    <div className="count">
-      <p>
-        Following : <span className="count__details">{following}</span>
-      </p>
-      <p className="count__fix">
-        Followers :<span className="count__details"> {followers}</span>
-      </p>
-    </div>
-    /*     <Accordion defaultActiveKey="1">
-      <Accordion.Item eventKey="0">
-        <Accordion.Header>Following</Accordion.Header>
-        <Accordion.Body>
-          {profileList.map((users) => {
-            return (
-              <Link to={`/users/${users.name}`} key={users.name}>
-                <img src={users.avatar} className="img-fluid miniatyr" alt="" />
-                <div>{users.name}</div>
-              </Link>
-            );
-          })}
-        </Accordion.Body>
-      </Accordion.Item>
-      <Accordion.Item eventKey="1">
-        <Accordion.Header>KobleStats</Accordion.Header>
-        <Accordion.Body>
-          <p>Following : {following}</p>
-          <p>Followers : {followers}</p>
-        </Accordion.Body>
-      </Accordion.Item>
-    </Accordion> */
+    <>
+      <div className="count">
+        <p onClick={() => setShowModal(true)}>
+          Following : <span className="count__details">{following}</span>
+        </p>
+
+        <p className="count__fix" onClick={() => setShowModalSecond(true)}>
+          Followers :<span className="count__details"> {followers}</span>
+        </p>
+      </div>
+
+      <KobleModal show={showModal} onHide={() => setShowModal(false)} title="Following">
+        <GetFollowingProfiles />
+      </KobleModal>
+      <KobleModal show={showModalSecond} onHide={() => setShowModalSecond(false)} title="Following">
+        <GetFollowerProfiles />
+      </KobleModal>
+    </>
   );
 }

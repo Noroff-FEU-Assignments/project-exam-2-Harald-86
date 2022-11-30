@@ -37,3 +37,20 @@
   font-size: 1.2rem;
   font-weight: bold;
 }
+
+.small__profile {
+  border: 1px solid $secondary;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+
+  &--avatar {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+  }
+
+  &--name {
+    text-transform: uppercase;
+  }
+}

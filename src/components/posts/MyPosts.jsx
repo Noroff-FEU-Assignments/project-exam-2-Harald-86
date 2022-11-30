@@ -68,7 +68,7 @@ export default function MyPosts() {
               <div className="post__title">{myposts.title}</div>
               <div className="post__text"> {myposts.body}</div>
             </div>
-            <div className="post__footer">
+            <div className="post__footer--mine">
               <Link to={`/posts/${myposts.id}`}>
                 <Button className="cta">View</Button>
               </Link>
