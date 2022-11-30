@@ -34,7 +34,7 @@ export default function DeleteButton({ id, renew }) {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Delete Shout!</Modal.Title>
         </Modal.Header>
         <Modal.Body>Are you sure you want to delete this post?</Modal.Body>
         <Modal.Footer>

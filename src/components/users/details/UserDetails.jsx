@@ -64,7 +64,7 @@ export default function UserDetails() {
       <Row className="profile__body">
         <Col md={12}>
           {userDetail.banner ? (
-            <img src={userDetail.banner} className="profile__banner img-fluid" alt="Users banner" />
+            <img src={userDetail.banner} className="avatar" alt="Users banner" />
           ) : (
             <Art>
               <Heading title="koble" size="2" />

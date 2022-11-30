@@ -26,17 +26,20 @@ export default function Dashboard() {
       </Art>
       <Heading size="1" title="Koble" />
       <Row className="dashboard">
-        <Col xs={6} sm={4} md={2} className="dashboard__col--img">
+        <Col xs={12} sm={12} md={2} className="dashboard__col--img">
           <Link to="/profile">
             <ProfilePic alt="your profile avatar" />
+            <Username />
           </Link>
         </Col>
-        <Col xs={6} sm={8} md={10} className="dashboard__col--background"></Col>
+        <Col xs={612} sm={12} md={10} className="dashboard__col--background">
+          <GetFeed />
+        </Col>
       </Row>
 
-      <Row>
+      {/* <Row>
         <GetFeed />
-      </Row>
+      </Row> */}
     </>
   );
 }

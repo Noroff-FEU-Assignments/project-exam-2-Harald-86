@@ -12,8 +12,7 @@
 }
 
 .hero,
-.avatar--main,
-.dashboard {
+.avatar--main {
   box-shadow: 1px 5px 9px rgba($color: #000000, $alpha: 0.25);
 }
 
@@ -26,12 +25,12 @@
   &__col--img {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     flex-wrap: wrap;
   }
 
-  &__col--background {
-  }
+  /*  &__col--background {
+  } */
 }
 
 .entry {

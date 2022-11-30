@@ -37,8 +37,9 @@ export default function MyPosts() {
   return (
     <div className="post">
       <div className="post__panel">
+        <GetFollowNumbers />
         <Button
-          className="cta"
+          className="cta post__panel--shout btn-secondary btn"
           onClick={() => {
             setModalShowTwo(true);
           }}
@@ -46,7 +47,6 @@ export default function MyPosts() {
           {" "}
           SHOUT!
         </Button>
-        <GetFollowNumbers />
       </div>
       <KobleModal show={modalShowTwo} onHide={() => setModalShowTwo(false)} title="Shout! | Koble">
         <CreatePost posts={fetchMyPosts} />
@@ -70,9 +70,10 @@ export default function MyPosts() {
             </div>
             <div className="post__footer">
               <Link to={`/posts/${myposts.id}`}>
-                <Button>View</Button>
+                <Button className="cta">View</Button>
               </Link>
               <Button
+                className="cta"
                 variant="primary"
                 onClick={() => {
                   setModalInfo(myposts);

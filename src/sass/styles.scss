@@ -1,6 +1,5 @@
 @import "partials/custom";
 @import "partials/typography";
-@import "partials/mediaQueries";
 @import "partials/layout";
 @import "partials/footer";
 @import "partials/posts";
@@ -13,6 +12,7 @@
 @import "partials/shout";
 @import "partials/error";
 @import "partials/common";
+@import "partials/mediaQueries";
 //Bootstrap
 /* @import "~bootstrap/scss/bootstrap"; */
 @import "../../node_modules/bootstrap/scss/mixins/banner";

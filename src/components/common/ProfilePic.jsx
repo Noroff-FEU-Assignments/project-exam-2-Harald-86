@@ -35,7 +35,7 @@ export default function ProfilePic(props) {
     return <AlertBad />;
   }
 
-  return <Image src={pict} alt={props.alt} className="img-fluid avatar--main " />;
+  return <Image src={pict} alt={props.alt} className="avatar" />;
 }
 ProfilePic.propTypes = {
   alt: PropTypes.string,

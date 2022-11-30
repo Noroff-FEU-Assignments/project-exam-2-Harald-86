@@ -58,6 +58,7 @@ export default function GetFeed() {
           {" "}
           NEW SHOUT!
         </Button>
+        <div className="post__panel--text">Friends are shouting</div>
       </div>
       <KobleModal show={modalShow} onHide={() => setModalShow(false)} title="Shout! | Koble">
         <CreatePost posts={fetchMyPosts} />

@@ -12,19 +12,27 @@
   }
 
   &__panel {
-    padding: 1rem;
+    /* padding: 1rem; */
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
+    &--text {
+      margin-top: 1rem;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    /* &--shout {
+      margin-right: 7rem;
+    } */
     .count {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: start;
       align-items: center;
-      width: 100%;
+      width: 90%;
 
       p {
         margin-left: 1rem;
@@ -61,6 +69,8 @@
 
   &__footer {
     padding: 1rem;
+    display: flex;
+    justify-content: space-evenly;
   }
 }
 
