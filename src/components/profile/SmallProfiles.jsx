@@ -3,6 +3,8 @@ import { BASE_URL } from "../../constants/api";
 import getLocalstorageInfo from "../../context/useLocalstorage";
 import { useEffect, useState } from "react";
 import Heading from "../common/Heading";
+import { Link } from "react-router-dom";
+
 const me = getLocalstorageInfo("auth").name;
 
 export function GetFollowingProfiles() {
@@ -30,10 +32,12 @@ export function GetFollowingProfiles() {
     <div>
       {following.map((ing) => {
         return (
-          <div className="small__profile">
-            <img src={ing.avatar} className="small__profile--avatar" alt="" />
-            <Heading size="4" title={ing.name} className="small__profile--name" />
-          </div>
+          <Link to={`/users/${ing.name}`}>
+            <div className="small__profile">
+              <img src={ing.avatar} className="small__profile--avatar" alt="" />
+              <Heading size="4" title={ing.name} />
+            </div>
+          </Link>
         );
       })}
     </div>
