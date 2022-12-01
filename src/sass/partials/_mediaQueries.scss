@@ -8,8 +8,14 @@
   .post__panel--shout {
     margin-right: 0;
   }
+  .user {
+    width: 250px;
+  }
 }
 @media screen and (max-width: 767px) {
+  .user {
+    width: 200px;
+  }
   .banner {
     &__col--paragraph {
       padding-top: 25% !important;
@@ -37,5 +43,14 @@
   .profile_banner,
   .hero {
     height: 225px !important;
+  }
+  .user {
+    width: 350px;
+  }
+}
+
+@media screen and (max-widt: 320px) {
+  .user {
+    width: 282px;
   }
 }

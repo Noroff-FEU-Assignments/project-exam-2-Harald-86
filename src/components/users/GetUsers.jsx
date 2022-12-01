@@ -5,6 +5,7 @@ import { BASE_URL } from "../../constants/api";
 import Card from "react-bootstrap/Card";
 /* import FollowProfile from "./Follow"; */
 import { Link } from "react-router-dom";
+import Heading from "../common/Heading";
 
 const allUsersUrl = BASE_URL + "/social/profiles?sortOrder=asc";
 console.log("all users :", allUsersUrl);
@@ -58,7 +59,9 @@ export default function GetAllUsers() {
                 )}
               </div>
               <div className="user__body">
-                <div className="user__body__title">{user.name}</div>
+                <div className="user__body__title">
+                  <Heading size="5" title={user.name} />
+                </div>
               </div>
             </div>
           </Link>
