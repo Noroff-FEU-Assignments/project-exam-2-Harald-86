@@ -50,17 +50,17 @@ export function GetFollowerProfiles() {
   const [error, setError] = useState(null);
 
   const auth = useAxios();
-  const follow_URL = BASE_URL + `/social/profiles/${me}?_following=true&_followers=true`;
+  const follow_URL =
+    BASE_URL /* `/social/profiles/${me}?_following=true&_followers=true`; */ +
+    async function getFollowers() {
+      try {
+        const responseFollowers = await auth.get(follow_URL);
 
-  async function getFollowers() {
-    try {
-      const responseFollowers = await auth.get(follow_URL);
-
-      setFollowers(responseFollowers.data.followers);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+        setFollowers(responseFollowers.data.followers);
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
   useEffect(() => {
     getFollowers();
