@@ -15,7 +15,7 @@ export default function GetFollowNumbers() {
   const [followers, setFollowers] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [showModalSecond, setShowModalSecond] = useState(false);
-  /*  const [profileList, setProfileList] = useState([]); */
+  const [profileList, setProfileList] = useState([]);
 
   async function checkForFollowDetails() {
     try {
@@ -28,7 +28,7 @@ export default function GetFollowNumbers() {
     }
   }
 
-  /*   async function getProfiles() {
+  async function getProfiles() {
     try {
       const response = await auth.get(followerInfo_URL);
       console.log("display followers", response.data.following);
@@ -36,11 +36,11 @@ export default function GetFollowNumbers() {
     } catch (error) {
       console.log(error);
     }
-  } */
+  }
 
   useEffect(() => {
     checkForFollowDetails();
-    /* getProfiles(); */
+    getProfiles();
   }, []);
 
   return (

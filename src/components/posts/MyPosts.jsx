@@ -37,7 +37,7 @@ export default function MyPosts() {
   return (
     <div className="post">
       <div className="post__panel">
-        {/* <GetFollowNumbers /> */}
+        <GetFollowNumbers />
         <Button
           className="cta post__panel--shout btn-secondary btn"
           onClick={() => {
