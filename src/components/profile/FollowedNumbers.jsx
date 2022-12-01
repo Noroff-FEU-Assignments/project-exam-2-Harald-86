@@ -43,7 +43,7 @@ export default function GetFollowNumbers() {
     /* getProfiles(); */
   }, []);
 
-  /*   return (
+  return (
     <>
       <div className="count">
         <p onClick={() => setShowModal(true)}>
@@ -62,5 +62,5 @@ export default function GetFollowNumbers() {
         <GetFollowerProfiles />
       </KobleModal>
     </>
-  ); */
+  );
 }
