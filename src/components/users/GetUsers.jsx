@@ -45,7 +45,7 @@ export default function GetAllUsers() {
     <div className="allUsers">
       {allUsers.map(function (user) {
         return (
-          <Link to={`/users/${user.name}`} key={user.name}>
+          <Link to={`/users/${user.name}`} key={user.name} style={{ textDecoration: "none" }}>
             <div className="user">
               <div className="user__head">
                 {user.avatar ? (
