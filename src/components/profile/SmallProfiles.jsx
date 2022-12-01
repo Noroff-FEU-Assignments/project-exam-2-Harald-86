@@ -1,4 +1,4 @@
-import useAxios from "../../hooks/useAxios";
+/* import useAxios from "../../hooks/useAxios";
 import { BASE_URL } from "../../constants/api";
 import getLocalstorageInfo from "../../context/useLocalstorage";
 import { useEffect, useState } from "react";
@@ -80,3 +80,4 @@ export function GetFollowerProfiles() {
     </div>
   );
 }
+ */
