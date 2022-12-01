@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import getLocalstorageInfo from "../../context/useLocalstorage";
 import KobleModal from "../common/Modal";
 import CreatePost from "./CreatePost";
+import moment from "moment";
 
 export default function GetFeed() {
   const auth = useAxios();
@@ -84,6 +85,7 @@ export default function GetFeed() {
               </div>
               <div className="post__body">
                 <div className="post__user">{following.author.name}</div>
+                <div className="post__title"> {moment(following.created).format("DD MMMM YYYY")}</div>
                 <div className="post__title">{following.title}</div>
                 <div className="post__text"> {following.body}</div>
               </div>
