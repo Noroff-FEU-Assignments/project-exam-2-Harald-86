@@ -32,7 +32,7 @@ export function GetFollowingProfiles() {
     <div className="small">
       {following.map((ing) => {
         return (
-          <Link to={`/users/${ing.name}`}>
+          <Link to={`/users/${ing.name}`} key={ing.name}>
             <div className="small__profile">
               <img src={ing.avatar} className="small__profile--avatar" alt="" />
               <Heading size="4" title={ing.name} />
@@ -69,7 +69,7 @@ export function GetFollowerProfiles() {
     <div className="small">
       {followers.map((ers) => {
         return (
-          <Link to={`/users/${ers.name}`}>
+          <Link to={`/users/${ers.name}`} key={ers.name}>
             <div className="small__profile">
               <img src={ers.avatar} className="small__profile--avatar" alt="" />
               <Heading size="4" title={ers.name} />

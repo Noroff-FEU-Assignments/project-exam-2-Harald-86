@@ -46,7 +46,7 @@ export default function GetFeed() {
   useEffect(() => {
     setCombinedResults([...followingPosts, ...myPosts]);
   }, [myPosts, followingPosts]);
-  console.log(combinedResults.author);
+
   return (
     <div className="post">
       <div className="post__panel">
@@ -91,8 +91,9 @@ export default function GetFeed() {
               </div>
               <div className="post__footer">
                 <Link to={`/posts/${following.id}`}>
-                  <Button className="btn-secondary cta">View</Button>
+                  <Button className="btn-secondary cta post__footer__cta">View</Button>
                 </Link>
+                <div className="post__footer__count">Comments {following._count.comments}</div>
               </div>
             </div>
           );

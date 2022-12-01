@@ -41,17 +41,26 @@ export default function GetAllUsers() {
   }
 
   return (
-    <div className="container">
+    <div className="allUsers">
       {allUsers.map(function (user) {
         return (
           <Link to={`/users/${user.name}`} key={user.name}>
-            <Card style={{ width: "18rem" }} className="user">
-              <Card.Img variant="top" src={user.avatar} className="user__avatar img-fluid" alt="" />
-
-              <Card.Body>
-                <Card.Title>{user.name}</Card.Title>
-              </Card.Body>
-            </Card>
+            <div className="user">
+              <div className="user__head">
+                {user.avatar ? (
+                  <img src={user.avatar} className="user__avatar" alt="" />
+                ) : (
+                  <img
+                    src="https://images.pexels.com/photos/428364/pexels-photo-428364.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    className="user__avatar"
+                    alt=""
+                  />
+                )}
+              </div>
+              <div className="user__body">
+                <div className="user__body__title">{user.name}</div>
+              </div>
+            </div>
           </Link>
         );
       })}
