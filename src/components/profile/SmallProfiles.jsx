@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Heading from "../common/Heading";
 import { Link } from "react-router-dom";
 
-const me = getLocalstorageInfo("auth").name;
+/* const me = getLocalstorageInfo("auth").name; */
 
 export function GetFollowingProfiles() {
   const [following, setFollowing] = useState([]);
@@ -13,7 +13,7 @@ export function GetFollowingProfiles() {
   const [error, setError] = useState(null);
 
   const auth = useAxios();
-  const follow_URL = BASE_URL + `/social/profiles/${me}?_following=true&_followers=true`;
+  /*  const follow_URL = BASE_URL + `/social/profiles/${me}?_following=true&_followers=true`; */
 
   async function getFollowing() {
     try {
