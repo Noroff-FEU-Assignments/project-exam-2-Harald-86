@@ -56,10 +56,10 @@ export default function GetFollowNumbers() {
       </div>
 
       <KobleModal show={showModal} onHide={() => setShowModal(false)} title="Following | Koble">
-        <GetFollowingProfiles />
+        <GetFollowingProfiles user={me} />
       </KobleModal>
       <KobleModal show={showModalSecond} onHide={() => setShowModalSecond(false)} title="Followers | Koble">
-        <GetFollowerProfiles />
+        <GetFollowerProfiles user={me} />
       </KobleModal>
     </>
   );
