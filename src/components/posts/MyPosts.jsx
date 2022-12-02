@@ -10,6 +10,7 @@ import Button from "react-bootstrap/Button";
 import KobleModal from "../common/Modal";
 import DeleteButton from "./DeletePost";
 import GetFollowNumbers from "../profile/FollowedNumbers";
+
 export default function MyPosts() {
   const getUser = getLocalstorageInfo("auth").name;
   const auth = useAxios();

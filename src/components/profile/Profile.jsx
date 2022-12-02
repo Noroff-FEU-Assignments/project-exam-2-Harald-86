@@ -23,7 +23,6 @@ export default function Profile() {
         <Col xs={12} sm={8}>
           <hr />
           <MyPosts />
-          {/*   <GetFollowedNumbers /> */}
         </Col>
       </Row>
     </>

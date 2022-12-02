@@ -7,82 +7,71 @@ import Heading from "../../common/Heading";
 import getLocalstorageInfo from "../../../context/useLocalstorage";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import heroart from "../../../images/heroart.jpg";
 import Art from "../../dashboard/DashHero";
+import { FaCommentDots, FaRegUserCircle } from "react-icons/fa";
+import GetUserPosts from "./GetUserPosts";
 
 export default function UserDetails() {
   let { name } = useParams();
   const auth = useAxios();
-  const URL = BASE_URL + `/social/profiles/${name}`;
-  const you = getLocalstorageInfo("auth").name;
+  const URL = BASE_URL + `/social/profiles/${name}?_following=true&_followers=true`;
+
+  const user = getLocalstorageInfo("auth").name;
 
   const [userDetail, setUserDetail] = useState([]);
   const [following, setFollowing] = useState([]);
 
-  useEffect(() => {
-    async function fetchUserDetails() {
-      try {
-        const response = await auth.get(URL);
-        console.log("responseOne", response.data);
-        setUserDetail(response.data);
-      } catch (error) {
-        console.log(error.toString());
-      }
+  async function fetchUserDetails() {
+    try {
+      const response = await auth.get(URL);
+      console.log("use info? :", response.data);
+      setUserDetail(response.data);
+    } catch (error) {
+      console.log(error.toString());
     }
-    fetchUserDetails();
-  }, []);
+  }
 
-  useEffect(() => {
-    async function checkMe() {
-      try {
-        const responseTwo = await auth.get(BASE_URL + `/social/profiles/${you}?_following=true`);
-        setFollowing(responseTwo.data.following);
-      } catch (error) {
-        console.log(error);
-      }
+  async function checkMe() {
+    try {
+      const response_check = await auth.get(BASE_URL + `/social/profiles/${user}?_following=true`);
+      setFollowing(response_check.data.following);
+    } catch (error) {
+      console.log(error);
     }
+  }
+  useEffect(() => {
+    fetchUserDetails();
     checkMe();
   }, []);
 
-  console.log(userDetail.name);
-  console.log(following);
-
   const doesFollow = following.map((follow) => {
-    console.log(follow.name);
-
     return follow.name;
   });
 
-  console.log("do i follow?", doesFollow);
-
   const iFollow = doesFollow.includes(userDetail.name);
 
-  console.log("correct button?", iFollow);
-
   return (
-    <>
-      <Row className="profile__body">
-        <Col md={12}>
-          {userDetail.banner ? (
-            <img src={userDetail.banner} className="avatar" alt="Users banner" />
-          ) : (
-            <Art>
-              <Heading title="koble" size="2" />
-            </Art>
-          )}
-        </Col>
-        <Col sm={6}>
-          {" "}
-          <Heading size="1" title={userDetail.name} />
-        </Col>
-
-        <Col sm={6}>
-          <img src={userDetail.avatar} alt="Users avatar" className="profile__avatar" />
+    <div className="users">
+      <div className="users__banner">
+        {userDetail.banner ? (
+          <img src={userDetail.banner} className="banner" alt="Users banner" />
+        ) : (
+          <Art>
+            <Heading title="koble" size="2" />
+          </Art>
+        )}
+      </div>
+      <Row>
+        <Col xs={12} sm={4} md={4} className="avatar__user">
+          <img src={userDetail.avatar} alt="Users avatar" className="avatar" />
+          <Heading title={name} size="2" />
           <div>{iFollow ? <UnfollowProfile /> : <FollowProfile />}</div>
         </Col>
+        <Col xs={12} sm={8}>
+          <hr />
+          <GetUserPosts user={name} />
+        </Col>
       </Row>
-
-      <Row className="profile__footer"></Row>
-    </>
+    </div>
   );
 }

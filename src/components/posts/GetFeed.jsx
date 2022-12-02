@@ -7,6 +7,7 @@ import getLocalstorageInfo from "../../context/useLocalstorage";
 import KobleModal from "../common/Modal";
 import CreatePost from "./CreatePost";
 import moment from "moment";
+import { FaCommentDots } from "react-icons/fa";
 
 export default function GetFeed() {
   const auth = useAxios();
@@ -85,7 +86,7 @@ export default function GetFeed() {
               </div>
               <div className="post__body">
                 <div className="post__user">{following.author.name}</div>
-                <div className="post__title"> {moment(following.created).format("DD MMMM YYYY")}</div>
+                <div className="post__date"> {moment(following.created).format("DD MMM YYYY")}</div>
                 <div className="post__title">{following.title}</div>
                 <div className="post__text"> {following.body}</div>
               </div>
@@ -93,7 +94,9 @@ export default function GetFeed() {
                 <Link to={`/posts/${following.id}`}>
                   <Button className="btn-secondary cta post__footer__cta">View</Button>
                 </Link>
-                <div className="post__footer__count">Comments {following._count.comments}</div>
+                <div className="post__footer__count">
+                  <FaCommentDots /> {following._count.comments}
+                </div>
               </div>
             </div>
           );

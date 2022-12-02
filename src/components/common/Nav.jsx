@@ -4,6 +4,7 @@ import AuthContext from "../../context/AuthContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 function NavBar() {
   const [auth, setAuth] = useContext(AuthContext);
@@ -36,7 +37,9 @@ function NavBar() {
               </Nav>
               <Nav className="ml-auto">
                 <Nav.Link href="/">
-                  <button onClick={logout}>Log out</button>
+                  <Button className="btn-secondary" onClick={logout}>
+                    Log out
+                  </Button>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>

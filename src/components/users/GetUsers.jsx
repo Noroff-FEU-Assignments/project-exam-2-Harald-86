@@ -6,6 +6,7 @@ import Card from "react-bootstrap/Card";
 /* import FollowProfile from "./Follow"; */
 import { Link } from "react-router-dom";
 import Heading from "../common/Heading";
+import { FaCommentDots, FaRegUserCircle } from "react-icons/fa";
 
 const allUsersUrl = BASE_URL + "/social/profiles?sortOrder=asc";
 console.log("all users :", allUsersUrl);
@@ -59,6 +60,14 @@ export default function GetAllUsers() {
                 )}
               </div>
               <div className="user__body">
+                <div className="user__body__info">
+                  <span>
+                    <FaRegUserCircle /> {user._count.followers}
+                  </span>
+                  <span>
+                    <FaCommentDots /> {user._count.posts}
+                  </span>
+                </div>
                 <div className="user__body__title">
                   <Heading size="5" title={user.name} />
                 </div>
