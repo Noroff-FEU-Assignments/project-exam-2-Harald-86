@@ -6,6 +6,22 @@
   &__head {
     max-width: 200px;
   }
+
+  &__user {
+    text-align: center;
+  }
+
+  &__body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    &__title {
+      text-decoration: underline solid 3px $secondary;
+      -webkit-decoration: underline solid 3px $secondary;
+      margin-top: 1rem;
+    }
+  }
 }
 
 // userdetails

@@ -81,37 +81,61 @@ export default function GetPostDetails() {
 
   return (
     <div className="detail">
-      <Row className="detail__post">
-        <Col sm={12} md={6}>
-          <img src={postDetail.author.avatar} alt="Koble user" className="detail__head__avatar img-fluid" />
-        </Col>
-        <Col className="detail__body">
-          <h2 className="detail__body__title">{postDetail.title}</h2>
-          <p className="detail__body__copy">{postDetail.body}</p>
-          <img className="img-fluid" src={postDetail.media} alt="related to the post text " />
-        </Col>
-      </Row>
-      <div className="detail__comment">
-        <div className="detail__comment__head">
-          <input name="body" placeholder="Comment" {...register("body")} />
-          <button onClick={handleSubmit(handleComment)}>Comment</button>
-        </div>
-        <div className="detail__comment__body">
-          {commentDetail.map((getComments) => {
-            console.log(getComments);
-
-            return (
-              <div key={getComments.id}>
-                <h3>{getComments.owner}</h3>
-                <p>{getComments.body}</p>
-              </div>
-            );
-          })}
-        </div>
+      <div className="banner detail__banner">
+        {postDetail.media ? (
+          <img className="banner detail__banner" src={postDetail.media} alt="" />
+        ) : (
+          <img
+            src="https://images.pexels.com/photos/949587/pexels-photo-949587.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="this post has no media"
+            className="banner detail__banner"
+          />
+        )}
       </div>
-      <div className="detail__footer">
-        <p className="detail__footer__published">Published: {postDetail.created}</p>
+      <div className="detail__user">
+        <img src={postDetail.author.avatar} alt="Koble user" className="avatar" />
+      </div>
+      <div className="detail__body">
+        <h2 className="detail__body__title">{postDetail.title}</h2>
+        <p className="detail__body__text">{postDetail.body}</p>
+        <hr />
+        <div className="detail__body__info"></div>
       </div>
     </div>
   );
 }
+
+/* 
+<Row>
+<Col className="detail__body">
+  <img className="img-fluid" src={postDetail.media} alt="related to the post text " />
+  <p className="detail__body__copy">{postDetail.body}</p>
+</Col>
+</Row>
+<Row className="de">
+<img src={postDetail.author.avatar} alt="Koble user" className="avatar" />
+<h2 className="detail__body__title">{postDetail.title}</h2>
+</Row>
+<Row>
+<div className="detail__comment">
+  <div className="detail__comment__head">
+    <input name="body" placeholder="Comment" {...register("body")} />
+    <button onClick={handleSubmit(handleComment)}>Comment</button>
+  </div>
+  <div className="detail__comment__body">
+    {commentDetail.map((getComments) => {
+      console.log(getComments);
+
+      return (
+        <div key={getComments.id}>
+          <h3>{getComments.owner}</h3>
+          <p>{getComments.body}</p>
+        </div>
+      );
+    })}
+  </div>
+</div>
+<div className="detail__footer">
+  <p className="detail__footer__published">Published: {postDetail.created}</p>
+</div>
+</Row> */
