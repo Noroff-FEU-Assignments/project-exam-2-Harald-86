@@ -45,16 +45,20 @@ export default function GetAllPosts() {
         return (
           <div className="post__card" key={post.id}>
             <div className="post__head">
-              <Link to={`/posts/${post.id}`}>
-                <div
-                  className="post__image"
-                  style={{
-                    backgroundImage: post.media ? `url(${post.media})` : `url(http://placeimg.com/640/360/any)`,
-                  }}
-                >
-                  {" "}
-                </div>
-              </Link>
+              {post.media ? (
+                <Link to={`/posts/${post.id}`}>
+                  <div
+                    className="post__image"
+                    style={{
+                      backgroundImage: post.media ? `url(${post.media})` : `url(http://placeimg.com/640/360/any)`,
+                    }}
+                  >
+                    {" "}
+                  </div>
+                </Link>
+              ) : (
+                <div style={{ display: "none" }}></div>
+              )}
             </div>
             <div className="post__body">
               <div className="post__user">{post.author.name}</div>
@@ -63,7 +67,7 @@ export default function GetAllPosts() {
             </div>
             <div className="post__footer">
               <Link to={`/posts/${post.id}`}>
-                <Button>View</Button>
+                <Button className="btn-secondary">View</Button>
               </Link>
             </div>
           </div>

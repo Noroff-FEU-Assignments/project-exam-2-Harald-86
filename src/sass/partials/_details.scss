@@ -1,8 +1,21 @@
 // Postdetails
 
-.detail {
-  width: 100&;
+.emoji {
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: $primary;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 2px 10px 9px rgba($color: $primary, $alpha: 0.25);
+}
 
+.detail {
+  width: 100%;
+  margin-bottom: 3rem;
+
+  &__published {
+    color: $secondary;
+  }
   &__head {
     max-width: 200px;
   }
@@ -11,15 +24,32 @@
     text-align: center;
   }
 
+  &__reactions {
+    font-size: 2rem;
+    color: $secondary;
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+
   &__body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding: 1rem;
+    /*    border: 2px solid $secondary; */
+    box-shadow: 2px 10px 9px rgba($color: $primary, $alpha: 0.25);
+    border-radius: 5px;
+    margin-top: 2rem;
 
     &__title {
       text-decoration: underline solid 3px $secondary;
       -webkit-decoration: underline solid 3px $secondary;
       margin-top: 1rem;
+      text-transform: uppercase;
+    }
+
+    &__text {
+      max-width: 500px;
     }
   }
 }
@@ -43,5 +73,18 @@
   span {
     color: $secondary;
     font-size: 1.5rem;
+  }
+}
+
+//comments
+
+.comment__body {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  box-shadow: inset 1px 3px 6px rgba($color: $primary, $alpha: 0.25);
+  border-radius: 5px;
+
+  &__owner {
+    text-decoration: underline 3px solid $secondary;
   }
 }

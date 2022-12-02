@@ -71,18 +71,23 @@ export default function GetFeed() {
           return (
             <div className="post__card" key={following.id}>
               <div className="post__head">
-                <Link to={`/posts/${following.id}`}>
-                  <div
-                    className="post__image"
-                    style={{
-                      backgroundImage: following.media
-                        ? `url(${following.media})`
-                        : `url(http://placeimg.com/640/360/any)`,
-                    }}
-                  >
-                    {" "}
-                  </div>
-                </Link>
+                {following.media ? (
+                  <Link to={`/posts/${following.id}`}>
+                    <div
+                      className="post__image"
+                      style={{
+                        backgroundImage: following.media
+                          ? `url(${following.media})`
+                          : `url(http://placeimg.com/640/360/any)`,
+                      }}
+                    >
+                      {" "}
+                      :{" "}
+                    </div>
+                  </Link>
+                ) : (
+                  <div style={{ display: "none" }}>No media included</div>
+                )}
               </div>
               <div className="post__body">
                 <div className="post__user">{following.author.name}</div>

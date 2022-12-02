@@ -9,6 +9,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import ValidationError from "../../common/FormError";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import moment from "moment/moment";
+import { FaTachometerAlt } from "react-icons/fa";
+import ReactToPost from "../Reaction";
+
+import KobleModal from "../../common/Modal";
 
 const schema = yup.object().shape({
   body: yup.string().required("Please add a comment to comment...."),
@@ -19,6 +24,7 @@ export default function GetPostDetails() {
   const [commentDetail, setCommentDetail] = useState([]);
   const [loadPostDetail, setLoadPostDetail] = useState(true);
   const [errorDetail, setErrorDetail] = useState(null);
+  const [modalShow, setModalShow] = useState(false);
 
   let { id } = useParams();
 
@@ -98,8 +104,52 @@ export default function GetPostDetails() {
       <div className="detail__body">
         <h2 className="detail__body__title">{postDetail.title}</h2>
         <p className="detail__body__text">{postDetail.body}</p>
+        <p className="detail__published">Published: {moment(postDetail.created).format("DD MMM YYYY")}</p>
         <hr />
-        <div className="detail__body__info"></div>
+        <div className="detail__body__info">
+          <div>
+            <FaTachometerAlt
+              className="detail__reactions"
+              onClick={() => {
+                setModalShow(true);
+              }}
+            />
+          </div>
+          <KobleModal show={modalShow} onHide={() => setModalShow(false)} title="Reactions from other users">
+            {postDetail.reactions.map((reaction) => {
+              console.log("rea", reaction);
+              return (
+                <div key={reaction.symbol}>
+                  {reaction.symbol}
+                  {reaction.count}
+                </div>
+              );
+            })}
+          </KobleModal>
+          <div>
+            <ReactToPost post={postDetail.id} />
+          </div>
+
+          <hr />
+          <div className="comment">
+            <div className="comment__head">
+              <input name="body" placeholder="Comment" {...register("body")} />
+              <button onClick={handleSubmit(handleComment)}>Comment</button>
+            </div>
+            <div className="comment">
+              {commentDetail.map((getComments) => {
+                console.log(getComments);
+
+                return (
+                  <div className="comment__body" key={getComments.id}>
+                    <h3 className="comment__body__owner">{getComments.owner}</h3>
+                    <p className="comment__body__text">{getComments.body}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
