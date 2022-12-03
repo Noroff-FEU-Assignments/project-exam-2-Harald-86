@@ -21,9 +21,15 @@ export default function Register() {
         </Col>
         <Col sm={12} md={6}>
           <p>
-            Already a Koble user? go <Link to="/">here</Link> to login.
+            Already a Koble user? go{" "}
+            <Link to="/" className="reg">
+              here
+            </Link>{" "}
+            to login.
           </p>
-          <h3>Why join Koble?</h3>
+          <h3>
+            Why join <span className="brand--general">Koble</span>?
+          </h3>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
             industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and

@@ -10,7 +10,9 @@ export default function Login() {
     <>
       <Row className="banner">
         <Col className="banner__col">
-          <p className="banner__col--paragraph">koble</p>
+          <p className="banner__col--paragraph">
+            <span className="banner--brand">koble</span>
+          </p>
         </Col>
       </Row>
       <Row>
@@ -20,9 +22,15 @@ export default function Login() {
         </Col>
         <Col sm={12} md={6}>
           <p>
-            New to Koble? Register <Link to="/register">here</Link> to create an Account in no time.
+            New to Koble? Register{" "}
+            <Link to="/register" className="reg">
+              here
+            </Link>{" "}
+            to create an Account in no time.
           </p>
-          <h3>What is Koble?</h3>
+          <h3>
+            What is <span className="brand--general">Koble</span>?
+          </h3>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
             industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
