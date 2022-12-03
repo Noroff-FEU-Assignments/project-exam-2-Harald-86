@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import { FaUserAlt } from "react-icons/fa";
 
 function NavBar() {
   const [auth, setAuth] = useContext(AuthContext);
@@ -29,6 +30,7 @@ function NavBar() {
             <Navbar.Collapse id="basic-nav-bar">
               <Nav className="mx-auto">
                 <Link to="/profile" title="test">
+                  <FaUserAlt className="icon__profile" />
                   {userName.name}
                 </Link>
                 <Link to="/dashboard">Feed </Link>

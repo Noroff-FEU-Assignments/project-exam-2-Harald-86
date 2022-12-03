@@ -24,6 +24,7 @@ export default function GetUserPosts({ user }) {
 
   useEffect(() => {
     fetchPosts();
+    // eslint-disable-next-line
   }, []);
   console.log(Posts_URL);
   return (

@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import useAxios from "../../hooks/useAxios";
 import { BASE_URL } from "../../constants/api";
-import Card from "react-bootstrap/Card";
-/* import FollowProfile from "./Follow"; */
 import { Link } from "react-router-dom";
 import Heading from "../common/Heading";
 import { FaCommentDots, FaRegUserCircle } from "react-icons/fa";
@@ -23,7 +21,6 @@ export default function GetAllUsers() {
       try {
         const userResponse = await auth.get(allUsersUrl);
         setAllUsers(userResponse.data);
-        console.log("users :", userResponse.data);
       } catch (error) {
         console.log(error.toString());
         setUserError(error.toString());
@@ -32,6 +29,7 @@ export default function GetAllUsers() {
       }
     }
     fetchAllUsers();
+    // eslint-disable-next-line
   }, []);
 
   if (loadUsers) {
@@ -39,7 +37,7 @@ export default function GetAllUsers() {
   }
 
   if (userError) {
-    return <div className="message--error"></div>;
+    return <div className="message__error">Something went wrong, please try again later</div>;
   }
 
   return (

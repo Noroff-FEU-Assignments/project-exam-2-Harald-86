@@ -9,7 +9,7 @@ export function FollowProfile() {
   async function onClickFollow() {
     try {
       const response = await auth.put(`/social/profiles/${name}/follow`);
-      console.log("followed", response);
+      console.log("Followed", response);
     } catch (error) {
       console.log(error);
     } finally {
@@ -31,7 +31,7 @@ export function UnfollowProfile() {
   async function onClickUnfollow() {
     try {
       const response = await auth.put(`/social/profiles/${name}/unfollow`);
-      console.log("unfollowed", response);
+      console.log("unFollowed", response);
     } catch (error) {
       console.log(error);
     } finally {

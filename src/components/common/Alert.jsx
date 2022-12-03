@@ -2,16 +2,16 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 export function AlertBad(props) {
-  return <div className="alert">{props.alert}</div>;
+  return <div className="message__error">{props.alert}</div>;
 }
 
 export function AlertGood(props) {
-  return <div className="alert__good">{props.alert}</div>;
+  return <div className="message__success">{props.alert}</div>;
 }
 
 export function AlertRegister(props) {
   return (
-    <div className="alert__register">
+    <div className="message__success">
       {props.alert}
       <Link to="/">Now you can Log in</Link>
     </div>

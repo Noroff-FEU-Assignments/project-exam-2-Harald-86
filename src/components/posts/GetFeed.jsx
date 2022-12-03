@@ -8,6 +8,8 @@ import KobleModal from "../common/Modal";
 import CreatePost from "./CreatePost";
 import moment from "moment";
 import { FaCommentDots } from "react-icons/fa";
+import Loader from "../common/Loader";
+import { AlertBad } from "../common/Alert";
 
 export default function GetFeed() {
   const auth = useAxios();
@@ -17,6 +19,8 @@ export default function GetFeed() {
   const [myPosts, setMyPosts] = useState([]);
   const [combinedResults, setCombinedResults] = useState([]);
   const [modalShow, setModalShow] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   console.log("combined array", combinedResults);
 
@@ -27,6 +31,9 @@ export default function GetFeed() {
       setMyPosts(response_ONE.data);
     } catch (error) {
       console.log(error);
+      setError(error.toString());
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -37,17 +44,28 @@ export default function GetFeed() {
       setFollowingPosts(response_TWO.data);
     } catch (error) {
       console.log(error);
+      setError(error.toString());
+    } finally {
+      setLoading(false);
     }
   }
   useEffect(() => {
     fetchPosts();
     fetchMyPosts();
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     setCombinedResults([...followingPosts, ...myPosts]);
   }, [myPosts, followingPosts]);
 
+  if (loading) {
+    <Loader />;
+  }
+
+  if (error) {
+    <AlertBad>Something went wrong, please try again later.</AlertBad>;
+  }
   return (
     <div className="post">
       <div className="post__panel">
@@ -109,34 +127,3 @@ export default function GetFeed() {
     </div>
   );
 }
-
-/* 
-{[...combinedResults]
-  .sort((a, b) => b.id - a.id)
-  .map((following) => {
-    return (
-      <div className="post__card" key={following.id}>
-        <Link to={`/posts/${following.id}`}>
-          {" "}
-          {following.media ? (
-            <img src={following.media} className="img-fluid post__img" alt="post art" />
-          ) : (
-            <img
-              src="http://placeimg.com/640/360/any"
-              className="img-fluid post__img"
-              alt="this is a random generated placeholder"
-            />
-          )}
-        </Link>
-        <div className="post__user">{following.author}</div>
-        <div className="post__title">{following.title}</div>
-        <div className="post__body"> {following.body}</div>
-        <div className="post__footer">
-          <Link to={`/posts/${following.id}`}>
-            <Button>View</Button>
-          </Link>
-        </div>
-      </div>
-    );
-  })}
-   */

@@ -10,8 +10,6 @@ p {
   color: $primary;
 }
 
-// nav
-
 nav {
   .brand {
     text-transform: capitalize;
@@ -41,6 +39,7 @@ nav {
 }
 
 .brand--general {
+  text-decoration: underline 2px solid $secondary;
   -webkit-text-decoration: underline 2px solid $secondary;
   text-transform: uppercase;
   font-size: 2rem;
@@ -51,6 +50,9 @@ nav {
   font-family: "odibee Sans", cursive;
 }
 
+.banner--brand {
+  color: $lightColor;
+}
 .footer__brand {
   font-size: 1.3rem;
   text-decoration: underline 2px solid $secondary;

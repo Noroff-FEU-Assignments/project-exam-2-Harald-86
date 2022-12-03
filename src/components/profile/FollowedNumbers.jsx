@@ -2,7 +2,7 @@ import useAxios from "../../hooks/useAxios";
 import getLocalstorageInfo from "../../context/useLocalstorage";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "../../constants/api";
-import { Link } from "react-router-dom";
+
 import KobleModal from "../common/Modal";
 import { GetFollowerProfiles, GetFollowingProfiles } from "./SmallProfiles";
 
@@ -15,6 +15,7 @@ export default function GetFollowNumbers() {
   const [followers, setFollowers] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [showModalSecond, setShowModalSecond] = useState(false);
+  //eslint-disable-next-line
   const [profileList, setProfileList] = useState([]);
 
   async function checkForFollowDetails() {
@@ -41,6 +42,7 @@ export default function GetFollowNumbers() {
   useEffect(() => {
     checkForFollowDetails();
     getProfiles();
+    // eslint-disable-next-line
   }, []);
 
   return (

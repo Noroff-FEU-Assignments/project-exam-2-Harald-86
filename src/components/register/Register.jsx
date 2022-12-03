@@ -5,18 +5,15 @@ import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
 
 export default function Register() {
+  document.title = "Sign up! | KOBLE ";
   return (
     <>
       <Row>
         <div className="banner"></div>
-
-        {/*  <Col className="banner__col">
-          <p className="banner__col--paragraph">koble</p>
-        </Col> */}
       </Row>
       <Row>
         <Col sm={12} md={6}>
-          <Heading title="register" />
+          <Heading title="Register" size="1" />
           <RegForm />
         </Col>
         <Col sm={12} md={6}>

@@ -18,19 +18,14 @@
 
 .dashboard {
   border-radius: 5px;
-  /*   border: 0.5px solid $secondary; */
   padding: 0.5rem;
   margin-bottom: 1rem;
 
   &__col--img {
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     flex-wrap: wrap;
   }
-
-  /*  &__col--background {
-  } */
 }
 
 .entry {

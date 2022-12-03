@@ -23,7 +23,6 @@
   }
 
   &__panel {
-    /* padding: 1rem; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,9 +33,7 @@
       font-size: 2rem;
       font-weight: bold;
     }
-    /* &--shout {
-      margin-right: 7rem;
-    } */
+
     .count {
       display: flex;
       flex-direction: row;

@@ -9,3 +9,22 @@
     border-radius: 5px;
   }
 }
+
+.message {
+  color: white;
+  text-transform: uppercase;
+
+  &__error {
+    padding: 1rem;
+    border: 1px solid red;
+    background-color: rgb(255, 108, 108);
+    border-radius: 5px;
+  }
+
+  &__success {
+    padding: 1rem;
+    border: 1px solid green;
+    background-color: rgb(101, 138, 101);
+    border-radius: 5px;
+  }
+}

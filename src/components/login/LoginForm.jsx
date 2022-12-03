@@ -34,13 +34,12 @@ export default function LoginForm() {
   const [auth, setAuth] = useContext(AuthContext);
   const navigate = useNavigate();
 
-  //redir between here
   useEffect(() => {
     if (auth) {
       navigate("/dashboard");
     }
   });
-  //redir between here
+
   async function onSubmit(data) {
     console.log(data);
 

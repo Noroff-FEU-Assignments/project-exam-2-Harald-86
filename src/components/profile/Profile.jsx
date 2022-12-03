@@ -4,9 +4,7 @@ import Username from "./Name";
 import Avatar from "./Media";
 import Banner from "./Banner";
 import MyPosts from "../posts/MyPosts";
-import Heading from "../common/Heading";
 import getLocalstorageInfo from "../../context/useLocalstorage";
-import GetFollowedNumbers from "./FollowedNumbers";
 
 export default function Profile() {
   const user = getLocalstorageInfo("auth").name;

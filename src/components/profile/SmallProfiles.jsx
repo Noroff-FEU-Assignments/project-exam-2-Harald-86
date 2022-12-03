@@ -1,6 +1,6 @@
 import useAxios from "../../hooks/useAxios";
 import { BASE_URL } from "../../constants/api";
-
+import Loader from "../common/Loader";
 import { useEffect, useState } from "react";
 import Heading from "../common/Heading";
 import { Link } from "react-router-dom";
@@ -18,13 +18,24 @@ export function GetFollowingProfiles({ user }) {
       const responseFollowing = await auth.get(follow_URL);
       setFollowing(responseFollowing.data.following);
     } catch (error) {
-      console.log(error);
+      setError(error.toString());
+    } finally {
+      setLoading(false);
     }
   }
 
   useEffect(() => {
     getFollowing();
+    // eslint-disable-next-line
   }, []);
+
+  if (loading) {
+    <Loader />;
+  }
+
+  if (error) {
+    <div></div>;
+  }
 
   return (
     <div className="small">
@@ -52,16 +63,27 @@ export function GetFollowerProfiles({ user }) {
   async function getFollowers() {
     try {
       const responseFollowers = await auth.get(follow_URL);
-
       setFollowers(responseFollowers.data.followers);
     } catch (error) {
       console.log(error);
+      setError(error.toString());
+    } finally {
+      setLoading(false);
     }
   }
 
   useEffect(() => {
     getFollowers();
+    // eslint-disable-next-line
   }, []);
+
+  if (loading) {
+    <Loader />;
+  }
+
+  if (error) {
+    <div></div>;
+  }
 
   return (
     <div className="small">

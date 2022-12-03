@@ -8,7 +8,6 @@ import getLocalstorageInfo from "../../../context/useLocalstorage";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Art from "../../dashboard/DashHero";
-import { FaCommentDots, FaRegUserCircle } from "react-icons/fa";
 import GetUserPosts from "./GetUserPosts";
 
 export default function UserDetails() {
@@ -42,6 +41,7 @@ export default function UserDetails() {
   useEffect(() => {
     fetchUserDetails();
     checkMe();
+    // eslint-disable-next-line
   }, []);
 
   const doesFollow = following.map((follow) => {

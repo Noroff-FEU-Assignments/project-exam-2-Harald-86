@@ -2,27 +2,19 @@ import Heading from "../common/Heading";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Art from "./DashHero";
-import CreatePost from "../posts/CreatePost";
 import ProfilePic from "../common/ProfilePic";
 import { Link } from "react-router-dom";
 import GetFeed from "../posts/GetFeed";
 import Username from "../profile/Name";
 
-/* import getLocalstorageInfo from "../../context/useLocalstorage"; */
-/* import { useState } from "react"; */
-
-/* const user = JSON.parse(localStorage.getItem("auth"));
-console.log(user.name); */
-
 export default function Dashboard() {
-  /*   const avatar = getLocalstorageInfo("auth").avatar;
-  const name = getLocalstorageInfo("auth").name;
-  console.log(getAvatar); */
-
+  document.title = "Feed | KOBLE ";
   return (
     <>
       <Art>
-        <Heading size="2" title="Koble" />
+        <div className="banner__col--paragraph">
+          <span className="banner--brand">koble</span>
+        </div>
       </Art>
       <Heading size="1" title="Koble" />
       <Row className="dashboard">
@@ -36,10 +28,6 @@ export default function Dashboard() {
           <GetFeed />
         </Col>
       </Row>
-
-      {/* <Row>
-        <GetFeed />
-      </Row> */}
     </>
   );
 }
