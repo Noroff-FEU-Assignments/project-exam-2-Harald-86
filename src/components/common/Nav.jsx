@@ -31,9 +31,9 @@ function NavBar() {
                 <Link to="/profile" title="test">
                   {userName.name}
                 </Link>
-                <Link to="/dashboard">Home</Link>
-                <Link to="/posts">All posts</Link>
-                <Link to="/users">Explore Users</Link>
+                <Link to="/dashboard">Feed </Link>
+                <Link to="/posts">Posts</Link>
+                <Link to="/users">Users</Link>
               </Nav>
               <Nav className="ml-auto">
                 <Nav.Link href="/">

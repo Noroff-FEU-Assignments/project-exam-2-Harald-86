@@ -14,7 +14,6 @@ p {
 
 nav {
   .brand {
-    font-family: "Odibee Sans", cursive;
     text-transform: capitalize;
     padding-left: 1rem;
     text-decoration: underline 3px $secondary;
@@ -42,9 +41,21 @@ nav {
 }
 
 .brand--general {
-  font-family: "odibee Sans", cursive;
-  text-decoration: underline 2px solid $secondary;
   -webkit-text-decoration: underline 2px solid $secondary;
   text-transform: uppercase;
   font-size: 2rem;
+}
+.brand--general,
+.footer__brand,
+.brand {
+  font-family: "odibee Sans", cursive;
+}
+
+.footer__brand {
+  font-size: 1.3rem;
+  text-decoration: underline 2px solid $secondary;
+  -webkit-text-decoration: underline 2px solid $secondary;
+  span {
+    color: $secondary;
+  }
 }
