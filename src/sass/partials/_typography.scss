@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Roboto&display=swap");
-//general
+@import url("https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Roboto:wght@400;700&display=swap");
 
 h1 {
-  color: $dark-font;
+  color: $primary;
 }
 
 h1,
@@ -19,6 +18,7 @@ nav {
     text-transform: capitalize;
     padding-left: 1rem;
     text-decoration: underline 3px $secondary;
+    -webkit-text-decoration: underline 3px $secondary;
     font-size: 1.5rem;
     letter-spacing: 3px;
   }

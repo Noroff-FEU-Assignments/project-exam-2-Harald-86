@@ -7,10 +7,12 @@ import { Link } from "react-router-dom";
 export default function Register() {
   return (
     <>
-      <Row className="banner">
-        <Col className="banner__col">
+      <Row>
+        <div className="banner"></div>
+
+        {/*  <Col className="banner__col">
           <p className="banner__col--paragraph">koble</p>
-        </Col>
+        </Col> */}
       </Row>
       <Row>
         <Col sm={12} md={6}>
