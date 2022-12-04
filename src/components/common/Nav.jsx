@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { FaUserAlt } from "react-icons/fa";
-/* import { useState } from "react"; */
+import { useState } from "react";
 
 function NavBar() {
   const [auth, setAuth] = useContext(AuthContext);
@@ -19,11 +19,21 @@ function NavBar() {
     navigate("/");
   }
 
+  const [expanded, setExpanded] = useState(false);
+
+  const onClickHandler = () => {
+    setExpanded(false);
+  };
+
+  const onToggle = (controls) => {
+    setExpanded(controls);
+  };
+
   return (
     <>
       {auth ? (
         <>
-          <Navbar bg="primary" collapseOnSelect expand="md">
+          <Navbar bg="primary" collapseOnSelect expand="md" expanded={expanded} onToggle={onToggle}>
             <Link className="brand" to="/dashboard">
               koble
             </Link>
@@ -34,9 +44,15 @@ function NavBar() {
                   <FaUserAlt className="icon__profile" />
                   {userName.name}
                 </Link>
-                <Link to="/dashboard">Feed </Link>
-                <Link to="/posts">Posts</Link>
-                <Link to="/users">Users</Link>
+                <Link to="/dashboard" onClick={onClickHandler}>
+                  Feed{" "}
+                </Link>
+                <Link to="/posts" onClick={onClickHandler}>
+                  Posts
+                </Link>
+                <Link to="/users" onClick={onClickHandler}>
+                  Users
+                </Link>
               </Nav>
               <Nav className="ml-auto">
                 <Nav.Link href="/">
