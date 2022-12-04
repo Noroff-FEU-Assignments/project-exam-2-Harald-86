@@ -34,6 +34,8 @@ function App() {
               <Route path="/users" element={<Users />}></Route>
               <Route path="/profile" element={<Profile />}></Route>
               <Route path="/users/:name" element={<UserDetails />}></Route>
+              <Route path="*" element={<Dashboard />}></Route>
+              {/*  istead of 404 this redirects to the "dashboard/Feed*/}
             </Routes>
           </Container>
         </div>
