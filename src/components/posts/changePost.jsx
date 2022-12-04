@@ -1,6 +1,7 @@
 import { BASE_URL } from "../../constants/api";
 import Form from "react-bootstrap/Form";
-import { useState, useEffect } from "react";
+import ValidationError from "../common/FormError";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import useAxios from "../../hooks/useAxios";
 import Button from "react-bootstrap/Button";
@@ -16,7 +17,6 @@ const schema = yup.object().shape({
 export default function UpdateModal({ refresh, id, body, title, media }) {
   const [success, setSuccess] = useState("");
 
-  console.log("resf", refresh);
   const {
     register,
     handleSubmit,
@@ -47,14 +47,17 @@ export default function UpdateModal({ refresh, id, body, title, media }) {
       <Form.Group>
         <Form.Label>Title</Form.Label>
         <Form.Control name="title" placeholder="title" defaultValue={title} {...register("title")} />
+        {errors.title && <ValidationError>{errors.title.message}</ValidationError>}
       </Form.Group>
       <Form.Group>
         <Form.Label>Media Url</Form.Label>
         <Form.Control name="media" placeholder="Url" defaultValue={media} {...register("media")} />
+        {errors.media && <ValidationError>{errors.media.message}</ValidationError>}
       </Form.Group>
       <Form.Group>
         <Form.Label>Shout</Form.Label>
         <Form.Control as="textarea" placeholder="body" name="title" defaultValue={body} {...register("body")} />
+        {errors.body && <ValidationError>{errors.body.message}</ValidationError>}
       </Form.Group>
       <Button className="btn btn-secondary cta" type="submit">
         Update Post

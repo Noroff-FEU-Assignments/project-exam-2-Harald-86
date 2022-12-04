@@ -137,6 +137,7 @@ export default function GetPostDetails() {
             <div className="comment__head">
               <Form>
                 <Form.Control as="textarea" name="body" placeholder="Shout back" {...register("body")} />
+                {errors.body && <ValidationError>{errors.body.message}</ValidationError>}
                 <Button className="btn-secondary btn cta" onClick={handleSubmit(handleComment)}>
                   Comment
                 </Button>
