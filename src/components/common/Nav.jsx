@@ -6,8 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { FaUserAlt } from "react-icons/fa";
+import { useState } from "react";
 
 function NavBar() {
+  const [expanded, setExpanded] = useState(false);
   const [auth, setAuth] = useContext(AuthContext);
   const userName = JSON.parse(localStorage.getItem("auth"));
 
@@ -22,7 +24,12 @@ function NavBar() {
     <>
       {auth ? (
         <>
-          <Navbar bg="primary" expand="md">
+          <Navbar
+            bg="primary"
+            expand="md"
+            expanded={expanded}
+            onClick={() => setExpanded(expanded ? false : "expanded")}
+          >
             <Link className="brand" to="/dashboard">
               koble
             </Link>

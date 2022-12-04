@@ -170,3 +170,37 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+///////////////////////////////////////////////////////////////////////////////
+
+Brief
+An existing Social Media company has approached you to create a brand new front end for their application. While they have a list of required features, the design and user experience has not been specified. Working with the official API documentation, plan, design and build a modern front end social media application.
+
+API
+The API I am using for this project can be found under Social EndPoints in the Noroff API documentation.
+
+Frameworks and Libaries used
+React-App
+Bootstrap
+Sass
+Yup and react-hook-form
+Axios
+Moment
+Installation and Setup
+To get started, clone this repository to your computer and make sure you have node and npm installed on your computer.
+
+Installation:
+npm install
+Start live server
+Open up your command line or terminal
+Make sure you are in the correct folder.
+npm start
+Localhost
+The app will usually start up on port 3000, if port is in use, click Y to open in another port (see terminal).
+
+Getting started
+To get started you need to register for an account or log in if you already have an account.
+
+Registering for an account is free
+An account must be created with @stud.noroff.no or @noroff.no
+Any posts created must be user friendly.
