@@ -101,7 +101,35 @@ An existing Social Media company has approached you to create a brand new front 
 - Create a Style Guide and a design prototype for the project
 - Develop the project and deliver within the deadline.
 
-### Project requirements
+### Technical requirements
+
+- JavaScript Framework
+- CSS Framework
+- Hosted on a static Host
+- Designed in Adobe XD or Figma
+- Planned in a "approved" Planning Application
+
+## Project Requirements
+
+The client has specified the following requirements in the form of *User Stories*:
+1. A user with a `stud.noroff.no` email may register
+2. A registered user may login
+3. A registered user may update their avatar and banner
+4. A registered user may logout
+5. A registered user may view a list of `Posts`
+6. A registered user may view a list of `Profiles`
+7. A registered user may view a single `Post` by `id`
+8. A registered user may view a single `Profile` by `name`
+9. A registered user may create a `Post`
+10. A registered user may update a `Post` they own
+11. A registered user may delete a `Post` they own
+12. A registered user may create a `Comment` on any `Post`
+13. A registered user may `react` to any `Post` with an emoji
+14. A registered user may `follow` and `unfollow` another `Profile`
+
+### API
+
+The API I am using for this project can be found under Social EndPoints in the Noroff API documentation. [https://noroff-api-docs.netlify.app/]
 
 
 
@@ -114,6 +142,7 @@ An existing Social Media company has approached you to create a brand new front 
 - [React-Hook-Form](https://react-hook-form.com)
 - [React-Icons](https://react-icons.github.io/react-icons)
 - [Postman](https://learning.postman.com/docs/getting-started/introduction/)
+- [Moment](https://momentjs.com/)
 - [HTML]
 - [JavaScript]
 
@@ -179,3 +208,5 @@ I have a long list of things i want to implement in my PE2 but never had the tim
 Best regards Koble Creator Harald Tomter.
 
 ![image](projectexam2-2.png)
+
+![image](projectexam2-3.png)
