@@ -115,19 +115,7 @@ You can send me an email or visit my LinkedIn profile listet:
 
 ## Project Reflection
 
-Koble is a social platform created on Noroff`s social API where you can create an userprofile, create your own post, read other users posts, comment and react with emojis, see other profiles, get followers and follow otherusers. You can even customize your profile with a banner and a profile picture.
 
-The planning for the project went well, i`ve learned over the years at Noroff how to work independent and structured with the help of Trello and a Gantt chart. I`ve had some struggles/Challenges on the way with some functions way longer than i should and ended up asking for some hints/tips and trick from one of the tutors in my class. I got the help i needed to move on and learned tons of stuff from the struggle i had and the help i got from Noroff.
-
-If i am to go deeper into the one big main issue i had that took almost all the time in my coding weeks was the usage of useEffect and state handling to update the states in realtime and make my components rerender on submit, onclick, between/cross parent and child components.
-In one point i`ve read up on useReducer hook and tried to implement it but as a "newbie" to React and the way i created my components it felt like to much work to implement the useReducer hook.
-
-The soloution was this easy: i passed functions down to the children as props and called the parent functions inside the children. And WOOPSi. there my components rerendred and displayed new posts in realtime as i created new entries, updated my avatar and so on. Perfect.
-
-One tool i want to mention that used alot in this project was Postman, i`ve created all the POST,GET,PUT,DELETE requests that this project needed in Postman before creating the JSX. As always i enjoy using new tools and learning them and i believe im gonna deep dive into Postman abit more to learn more about it.
-
-Other than that, i really enjoyed this project, and it made me want to create more projects in React. Every semester project and exam has tested my skills and i learned more from these project than anything else.
-I have a long list of things i want to implement in my PE2 but never had the time, but the project i delivered is a project that i am proud of and i hope you enjoy testing it aswell.
 
 Best regards Koble Creator Harald Tomter.
 
